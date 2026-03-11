@@ -77,10 +77,8 @@ export function FeatureSplit({ reverse = false }: FeatureSplitProps): React.JSX.
                     </motion.div>
                 </div>
 
-                {/* Mobile fallback — visible only on small screens */}
-                <div className="flex min-h-[200px] items-center justify-center bg-surface-elevated lg:hidden">
-                    <p className="eyebrow">Education & Training</p>
-                </div>
+                {/* Mobile accent bar */}
+                <div className="mt-2 h-1 w-16 bg-brand-crimson lg:hidden" />
 
                 {/* Text side — cascading reveal with blur */}
                 <div className="flex items-center bg-surface p-6 sm:p-10 lg:p-16 xl:p-24">

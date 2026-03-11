@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { ShieldCheck, BadgeCheck, MapPin, Microscope, FileCheck } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
 import { cardStagger, cardFadeScale } from "@/lib/motion";
 
@@ -16,41 +17,41 @@ const CERTIFICATIONS = [
     {
         label: "BPOM Registered",
         description: "All products officially registered",
-        icon: "🛡️",
+        icon: ShieldCheck,
     },
     {
         label: "100% Authentic",
         description: "Direct from brand manufacturers",
-        icon: "✓",
+        icon: BadgeCheck,
     },
     {
         label: "Made in Italy",
         description: "Premium European formulations",
-        icon: "🇮🇹",
+        icon: MapPin,
     },
     {
         label: "Made in Spain",
         description: "Mediterranean hair science",
-        icon: "🇪🇸",
+        icon: MapPin,
     },
     {
         label: "Dermatologist Tested",
         description: "Clinically validated products",
-        icon: "🔬",
+        icon: Microscope,
     },
     {
         label: "Official Distributor",
         description: "Exclusive import & distribution",
-        icon: "📋",
+        icon: FileCheck,
     },
 ];
 
 export function CertificationBadges() {
     return (
-        <section className="border-y border-border-warm/40 bg-surface py-16 lg:py-20">
+        <section className="border-y border-border-warm/40 bg-surface py-8 sm:py-12 lg:py-20">
             <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                 <FadeIn blur>
-                    <p className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-text-muted/60 mb-10">
+                    <p className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-text-muted/60 mb-6 sm:mb-10">
                         Trusted Certifications & Guarantees
                     </p>
                 </FadeIn>
@@ -66,9 +67,9 @@ export function CertificationBadges() {
                         <motion.div
                             key={cert.label}
                             variants={cardFadeScale}
-                            className="group flex flex-col items-center gap-3 bg-surface p-6 text-center transition-all duration-300 hover:shadow-sm"
+                            className="group flex flex-col items-center gap-2 sm:gap-3 bg-surface p-4 sm:p-6 text-center transition-all duration-300 hover:shadow-sm"
                         >
-                            <span className="text-2xl" aria-hidden="true">{cert.icon}</span>
+                            <cert.icon className="h-5 w-5 text-brand-crimson" aria-hidden="true" />
                             <div>
                                 <p className="text-xs font-bold uppercase tracking-[0.1em]">
                                     {cert.label}

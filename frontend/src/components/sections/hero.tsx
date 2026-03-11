@@ -97,7 +97,7 @@ export function HeroSection(): React.JSX.Element {
                     </div>
 
                     <FadeIn delay={HERO_TIMING.body} blur>
-                        <p className="mt-8 max-w-xl body-prose text-white/50">
+                        <p className="mt-4 sm:mt-8 max-w-xl body-prose text-white/70">
                             Exclusive importer and distributor of leading Italian
                             and Spanish professional haircare brands, serving
                             Indonesia&apos;s salon and barber industry for over
@@ -105,7 +105,7 @@ export function HeroSection(): React.JSX.Element {
                         </p>
                     </FadeIn>
 
-                    <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                    <div className="mt-6 sm:mt-10 flex flex-col gap-4 sm:flex-row">
                         <FadeIn delay={HERO_TIMING.cta} direction="up" blur>
                             <AnimatedButton
                                 href={NAV_LINKS.products}
@@ -134,7 +134,7 @@ export function HeroSection(): React.JSX.Element {
 
             {/* Bottom gradient bleed into next section */}
             <motion.div
-                className="absolute bottom-0 left-0 right-0 h-56 bg-gradient-to-t from-background via-background/40 to-transparent"
+                className="absolute bottom-0 left-0 right-0 h-32 sm:h-56 bg-gradient-to-t from-background via-background/40 to-transparent"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: HERO_TIMING.eyebrow + 0.2, duration: 1.4, ease: cinematicEase }}

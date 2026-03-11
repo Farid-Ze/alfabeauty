@@ -32,7 +32,7 @@ export default function HomePage(): React.JSX.Element {
             gap={3}
             rows={2}
             pauseOnHover
-            className="text-h4 font-bold tracking-tight text-foreground/80"
+            className="text-base sm:text-h4 font-semibold sm:font-bold tracking-tight text-foreground/80"
           >
             <span>Innovation</span>
             <span>Alfaparf Milano</span>

@@ -76,9 +76,9 @@ function StatDivider() {
 
 export function AboutSection(): React.JSX.Element {
     return (
-        <section id="about" className="bg-background py-24 lg:py-32">
+        <section id="about" className="bg-background py-12 sm:py-16 lg:py-32">
             <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-                <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+                <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-16">
                     {/* Left column — Image with clipPath reveal + parallax */}
                     <div className="lg:col-span-5">
                         <FadeIn blur scale>
@@ -132,10 +132,8 @@ export function AboutSection(): React.JSX.Element {
                             </motion.div>
                         </div>
 
-                        {/* Mobile fallback — visible only on small screens */}
-                        <div className="mt-8 flex min-h-[200px] items-center justify-center bg-surface-elevated lg:hidden">
-                            <p className="eyebrow">Since 2007</p>
-                        </div>
+                        {/* Mobile accent bar */}
+                        <div className="mt-6 h-1 w-16 bg-brand-crimson lg:hidden" />
                     </div>
 
                     {/* Right column — body copy + stats */}
@@ -161,13 +159,13 @@ export function AboutSection(): React.JSX.Element {
                             </p>
                         </FadeIn>
 
-                        <div className="mt-12">
+                        <div className="mt-6 sm:mt-12">
                             <LineGrow className="h-px bg-border-warm" />
                         </div>
 
                         {/* Counters with dividers between */}
                         <motion.div
-                            className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:gap-6"
+                            className="mt-6 sm:mt-12 grid grid-cols-3 gap-4 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:gap-6"
                             variants={counterStagger}
                             initial="hidden"
                             whileInView="visible"

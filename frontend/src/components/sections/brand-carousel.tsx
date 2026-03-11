@@ -102,7 +102,7 @@ export function BrandCarousel(): React.JSX.Element {
     }, [emblaApi]);
 
     return (
-        <section id="brands" className="bg-surface py-24 lg:py-32">
+        <section id="brands" className="bg-surface py-12 sm:py-16 lg:py-32">
             <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                 {/* Header row */}
                 <div className="flex items-end justify-between gap-8">
@@ -178,7 +178,7 @@ export function BrandCarousel(): React.JSX.Element {
                         >
                             <motion.div
                                 variants={cardFadeScale}
-                                className="group relative flex h-full min-h-[420px] flex-col justify-between overflow-hidden border border-border-warm/60 bg-surface-elevated p-8 transition-[box-shadow,border-color] duration-500 ease-[var(--ease)] hover:border-border-warm hover:shadow-sm lg:p-10"
+                                className="group relative flex h-full min-h-[300px] sm:min-h-[360px] lg:min-h-[420px] flex-col justify-between overflow-hidden border border-border-warm/60 bg-surface-elevated p-8 transition-[box-shadow,border-color] duration-500 ease-[var(--ease)] hover:border-border-warm hover:shadow-sm lg:p-10"
                             >
                                     <div className="relative z-10">
                                         <div className="mb-8 flex h-20 items-center justify-center overflow-hidden">

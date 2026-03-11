@@ -105,7 +105,7 @@ export function MegaFooter(): React.JSX.Element {
 
       <footer
         ref={footerRef}
-        className="fixed inset-x-0 bottom-0 z-0 flex min-h-[520px] flex-col bg-surface"
+        className="fixed inset-x-0 bottom-0 z-0 flex min-h-[420px] sm:min-h-[520px] flex-col bg-surface"
       >
         {/* Warm vignette atmosphere */}
         <div className="absolute inset-0 vignette-warm pointer-events-none" />
@@ -151,7 +151,7 @@ export function MegaFooter(): React.JSX.Element {
         </div>
 
         {/* ─── Main: Logo wordmark + 3 Pillar cards ─── */}
-        <div className="mx-auto flex w-full max-w-[1400px] flex-1 items-center gap-8 px-6 sm:px-8 lg:gap-12 lg:px-12">
+        <div className="mx-auto flex w-full max-w-[1400px] flex-1 items-center gap-4 sm:gap-8 px-6 sm:px-8 lg:gap-12 lg:px-12">
           {/* Brand wordmark (Yucca large logo equivalent) — real parallax */}
           <WordmarkParallax />
 

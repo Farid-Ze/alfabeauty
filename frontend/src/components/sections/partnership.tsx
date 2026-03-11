@@ -47,12 +47,12 @@ function PartnerCard({ number, eyebrow, title, items, accent = "crimson" }: Part
     return (
         <motion.div
             variants={cardFadeScale}
-            className="group relative h-full overflow-hidden border border-border-warm/60 bg-surface-elevated p-8 transition-all duration-300 hover:shadow-sm lg:p-12"
+            className="group relative h-full overflow-hidden border border-border-warm/60 bg-surface-elevated p-5 sm:p-8 transition-all duration-300 hover:shadow-sm lg:p-12"
         >
 
             <div className="relative z-10">
                 {/* Numbered badge */}
-                <span className="text-[64px] font-bold leading-none tracking-tighter text-border-warm/60 transition-colors duration-500 group-hover:text-border-warm select-none">
+                <span className="text-[36px] sm:text-[48px] lg:text-[64px] font-bold leading-none tracking-tighter text-border-warm/60 transition-colors duration-500 group-hover:text-border-warm select-none">
                     {number}
                 </span>
 
@@ -96,8 +96,8 @@ function PartnerCard({ number, eyebrow, title, items, accent = "crimson" }: Part
 
 export function PartnershipSection(): React.JSX.Element {
     return (
-        <section id="partnership" className="relative overflow-hidden bg-surface py-24 lg:py-32">
-            <div className="pointer-events-none absolute inset-0">
+        <section id="partnership" className="relative overflow-hidden bg-surface py-12 sm:py-16 lg:py-32">
+            <div className="pointer-events-none absolute inset-0 hidden lg:block">
                 <Image
                     src="/images/brands/alfaparf-milano.webp"
                     alt=""
@@ -127,7 +127,7 @@ export function PartnershipSection(): React.JSX.Element {
 
                 {/* Cards — stagger with scale + numbered */}
                 <motion.div
-                    className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2"
+                    className="mt-8 sm:mt-12 lg:mt-16 grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-2"
                     variants={cardStagger}
                     initial="hidden"
                     whileInView="visible"

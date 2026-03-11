@@ -103,9 +103,9 @@ export function FAQSection({
     const [openIndex, setOpenIndex] = React.useState<number | null>(null);
 
     return (
-        <section className="bg-background py-24 lg:py-32">
+        <section className="bg-background py-12 sm:py-16 lg:py-32">
             <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-                <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+                <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-12 lg:gap-16">
                     {/* Left — heading */}
                     <div className="lg:col-span-4">
                         <FadeIn blur scale>
