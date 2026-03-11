@@ -172,7 +172,7 @@ export function MegaFooter(): React.JSX.Element {
               >
                 <Link
                   href={pillar.href}
-                  className="group relative flex h-full min-h-[200px] flex-col justify-between overflow-hidden border border-charcoal/15 bg-surface-elevated/50 p-6 transition-all duration-300 hover:shadow-sm"
+                  className="group relative flex h-full min-h-[200px] flex-col justify-between overflow-hidden border border-charcoal/15 bg-surface-elevated/50 p-6 transition-[box-shadow,border-color] duration-500 ease-[var(--ease)] hover:border-charcoal/25 hover:shadow-sm"
                 >
                   {/* Background product image — reveals on hover */}
                   <Image
@@ -180,7 +180,7 @@ export function MegaFooter(): React.JSX.Element {
                     alt=""
                     fill
                     sizes="(max-width: 640px) 100vw, 33vw"
-                    className="object-cover opacity-0 transition-opacity duration-[800ms] ease-[var(--ease)] group-hover:opacity-[0.06]"
+                    className="object-cover opacity-0 transition-opacity duration-[800ms] ease-[var(--ease)] group-hover:opacity-[0.1]"
                     aria-hidden="true"
                   />
 
@@ -221,7 +221,7 @@ export function MegaFooter(): React.JSX.Element {
 
         {/* ─── Bottom bar ─── */}
         <FadeIn delay={0.3} blur>
-          <div className="border-t border-charcoal/10 bg-surface-elevated/60">
+          <div className="border-t border-charcoal/10 bg-surface-elevated">
             <motion.div
               className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 py-4 sm:flex-row sm:px-8 lg:px-12"
               variants={listStagger}
@@ -231,7 +231,7 @@ export function MegaFooter(): React.JSX.Element {
             >
               {/* Left: Copyright + Social icons */}
               <motion.div className="flex items-center gap-5" variants={listItemFadeIn}>
-                <p className="text-xs text-charcoal">
+                <p className="text-[13px] text-charcoal">
                   © {currentYear} {SITE_NAME}. All Rights Reserved
                 </p>
 
@@ -246,7 +246,7 @@ export function MegaFooter(): React.JSX.Element {
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-charcoal/50 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="text-charcoal/70 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     aria-label="Instagram"
                   >
                     <Instagram className="h-4 w-4" />
@@ -257,7 +257,7 @@ export function MegaFooter(): React.JSX.Element {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackEvent("cta_whatsapp_click", { location: "footer" })}
-                    className="text-charcoal/50 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="text-charcoal/70 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     aria-label="WhatsApp"
                   >
                     <MessageCircle className="h-4 w-4" />
@@ -272,7 +272,7 @@ export function MegaFooter(): React.JSX.Element {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-xs text-charcoal transition-colors duration-300 hover:text-foreground hover:underline underline-offset-4"
+                    className="text-[13px] text-charcoal transition-colors duration-300 hover:text-foreground hover:underline underline-offset-4"
                   >
                     {link.label}
                   </Link>
@@ -288,11 +288,11 @@ export function MegaFooter(): React.JSX.Element {
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackEvent("cta_whatsapp_click", { location: "sticky_fab" })}
-        className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg transition-[transform,box-shadow,opacity] duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(37,211,102,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg transition-[transform,box-shadow] duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(37,211,102,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         aria-label="Chat on WhatsApp"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={showFab ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8, pointerEvents: "none" as const }}
-        transition={{ duration: 0.3 }}
+        initial={{ y: 80, opacity: 0 }}
+        animate={showFab ? { y: 0, opacity: 1, pointerEvents: "auto" as const } : { y: 80, opacity: 0, pointerEvents: "none" as const }}
+        transition={{ type: "spring", stiffness: 260, damping: 25 }}
       >
         <MessageCircle className="h-5 w-5" />
       </motion.a>

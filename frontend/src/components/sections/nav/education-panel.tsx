@@ -36,7 +36,7 @@ export function EducationPanel() {
     const featured = getFeaturedEvent();
 
     return (
-        <div className="mx-auto grid min-h-[440px] max-w-[1400px] grid-cols-[1.1fr_1fr] gap-0 px-8 py-10 lg:px-12">
+        <div className="mx-auto grid h-[440px] max-w-[1400px] grid-cols-[1.1fr_1fr] gap-0 px-8 py-10 lg:px-12">
             {/* Left: Featured Event Showcase */}
             <div className="relative flex flex-col justify-between overflow-hidden bg-charcoal p-8 pr-10">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-crimson/15 via-charcoal to-charcoal" />

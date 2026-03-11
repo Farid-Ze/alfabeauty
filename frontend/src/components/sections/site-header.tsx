@@ -146,9 +146,9 @@ export function SiteHeader(): React.JSX.Element {
                 transition: "border-color .5s var(--ease), background-color .5s var(--ease), translate .7s var(--ease), box-shadow .5s var(--ease)",
             }}
         >
-            <div className="mx-auto grid h-[var(--header-height)] max-w-[1400px] grid-cols-[1fr_auto_1fr] items-center px-6 sm:px-8 lg:px-12">
+            <div className="mx-auto flex h-[var(--header-height)] max-w-[1400px] items-center justify-between px-6 sm:px-8 lg:grid lg:grid-cols-[1fr_auto_1fr] lg:px-12">
                 {/* ─── Logo ─── */}
-                <Link href="/" className="group flex items-center gap-3 shrink-0 justify-self-start">
+                <Link href="/" className="group flex items-center gap-3 shrink-0 lg:justify-self-start">
                     <Image
                         src="/images/logo/alfa-beauty-mark.svg"
                         alt={SITE_NAME}
@@ -234,7 +234,7 @@ export function SiteHeader(): React.JSX.Element {
                 </NavigationMenu>
 
                 {/* ─── Right actions ─── */}
-                <div className="flex items-center gap-3 shrink-0 justify-self-end">
+                <div className="flex items-center gap-3 shrink-0 lg:justify-self-end">
                     <a
                         href={WHATSAPP_URL}
                         target="_blank"

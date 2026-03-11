@@ -55,13 +55,12 @@ const VIEWPORT_BASE = [
 
 const VIEWPORT_FULL_WIDTH = [
   "mt-0 w-screen rounded-none border-0 border-b border-border-warm/60 bg-background text-foreground",
-  "will-change-[opacity,transform,height] translate-z-0",
-  "transition-[height] duration-300 ease-[var(--ease-menu-open)]",
-  // Simple hardware-accelerated fade and slight slide
+  "will-change-[height] translate-z-0",
+  "transition-[height] duration-[350ms] ease-[var(--ease-menu-open)]",
+  // Open: fade in only (no slide — height transition handles reveal)
   "data-[state=open]:animate-in data-[state=closed]:animate-out",
   "data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0",
-  "data-[state=open]:slide-in-from-top-2 data-[state=closed]:slide-out-to-top-2",
-  "duration-400 ease-[var(--ease-menu-open)]",
+  "duration-300 ease-[var(--ease-menu-open)]",
 ].join(" ")
 
 const VIEWPORT_DROPDOWN = [

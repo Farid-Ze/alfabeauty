@@ -178,7 +178,7 @@ export function BrandCarousel(): React.JSX.Element {
                         >
                             <motion.div
                                 variants={cardFadeScale}
-                                className="group relative flex h-full min-h-[420px] flex-col justify-between overflow-hidden border border-border-warm/60 bg-surface-elevated p-8 transition-all duration-300 hover:shadow-sm lg:p-10"
+                                className="group relative flex h-full min-h-[420px] flex-col justify-between overflow-hidden border border-border-warm/60 bg-surface-elevated p-8 transition-[box-shadow,border-color] duration-500 ease-[var(--ease)] hover:border-border-warm hover:shadow-sm lg:p-10"
                             >
                                     <div className="relative z-10">
                                         <div className="mb-8 flex h-20 items-center justify-center overflow-hidden">
@@ -188,7 +188,7 @@ export function BrandCarousel(): React.JSX.Element {
                                                 width={200}
                                                 height={60}
                                                 sizes="200px"
-                                                className="h-14 w-auto object-contain opacity-80 transition-[opacity,transform] duration-[800ms] ease-[var(--ease)] group-hover:opacity-100 group-hover:scale-110"
+                                                className="h-14 w-auto object-contain opacity-80 transition-[opacity,transform] duration-[800ms] ease-[var(--ease)] group-hover:opacity-100 group-hover:scale-105"
                                             />
                                         </div>
 

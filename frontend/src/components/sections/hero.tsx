@@ -9,7 +9,7 @@ import { AnimatedButton } from "@/components/ui/animated-button";
 import { TextReveal } from "@/components/motion/text-reveal";
 import { FadeIn } from "@/components/motion/fade-in";
 import { NAV_LINKS, ESTABLISHED_YEAR } from "@/lib/config";
-import { HERO_TIMING, cinematicEase } from "@/lib/motion";
+import { getHeroTiming, cinematicEase } from "@/lib/motion";
 
 /* ─────────────────────────────────────────────────────────────────────
  * HeroSection V8 — Cinematic hero with enhanced depth & atmosphere.
@@ -18,6 +18,7 @@ import { HERO_TIMING, cinematicEase } from "@/lib/motion";
  *   and dual CTA buttons. Pillar cards removed for cleaner layout.
  * ───────────────────────────────────────────────────────────────────── */
 export function HeroSection(): React.JSX.Element {
+    const HERO_TIMING = getHeroTiming();
     const videoRef = React.useRef<HTMLVideoElement>(null);
     const sectionRef = React.useRef<HTMLElement>(null);
 

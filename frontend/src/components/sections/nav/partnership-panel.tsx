@@ -27,7 +27,7 @@ const PARTNERSHIP_ITEMS = [
 
 export function PartnershipPanel() {
     return (
-        <div className="mx-auto grid min-h-[440px] max-w-[1400px] grid-cols-[1.1fr_1fr] gap-0 px-8 py-10 lg:px-12">
+        <div className="mx-auto grid h-[440px] max-w-[1400px] grid-cols-[1.1fr_1fr] gap-0 px-8 py-10 lg:px-12">
             {/* Left: Partnership Showcase */}
             <div className="relative flex flex-col justify-between overflow-hidden bg-charcoal p-8 pr-10">
                 <div className="absolute inset-0 bg-gradient-to-br from-brand-dark/30 via-charcoal to-charcoal" />
