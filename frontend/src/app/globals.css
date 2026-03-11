@@ -131,6 +131,7 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-weight: 300;
+    overflow-x: hidden;
   }
 }
 
@@ -160,7 +161,7 @@
    * ───────────────────────────────────────────────────────────────── */
 
   .text-display-xl {
-    font-size: clamp(3.5rem, 7vw, 9rem);
+    font-size: clamp(2.5rem, 7vw, 9rem);
     line-height: 1;
     letter-spacing: -0.03em;
     font-weight: 700;
@@ -221,7 +222,7 @@
   /* Legacy aliases (existing classes — now use clamp internally) */
 
   .heading-display {
-    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-size: clamp(1.75rem, 5vw, 3.75rem);
     line-height: 1.1;
     letter-spacing: -0.02em;
     font-weight: 700;

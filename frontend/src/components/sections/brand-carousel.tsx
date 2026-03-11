@@ -224,19 +224,23 @@ export function BrandCarousel(): React.JSX.Element {
                 </div>
 
                 {/* Pagination dots */}
-                <div className="flex items-center justify-center gap-2 lg:justify-start">
+                <div className="flex items-center justify-center gap-0.5 lg:justify-start">
                     {BRANDS.map((_, i) => (
                         <button
                             key={i}
                             onClick={() => scrollTo(i)}
-                            className={cn(
-                                "h-1.5 rounded-full transition-[width,background-color] duration-[600ms] ease-[var(--ease)]",
-                                selectedIndex === i
-                                    ? "w-8 bg-foreground scale-y-110"
-                                    : "w-1.5 bg-foreground/20 hover:bg-foreground/40 hover:scale-110"
-                            )}
+                            className="flex items-center justify-center px-1 py-4"
                             aria-label={`Go to slide ${i + 1}`}
-                        />
+                        >
+                            <span
+                                className={cn(
+                                    "block h-1.5 rounded-full transition-[width,background-color] duration-[600ms] ease-[var(--ease)]",
+                                    selectedIndex === i
+                                        ? "w-8 bg-foreground"
+                                        : "w-1.5 bg-foreground/20 hover:bg-foreground/40"
+                                )}
+                            />
+                        </button>
                     ))}
                 </div>
             </div>

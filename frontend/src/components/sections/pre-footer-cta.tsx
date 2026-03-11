@@ -25,7 +25,7 @@ const MARQUEE_WORDS = [
 
 export function PreFooterCTA() {
     return (
-        <section className="pre-footer-cta relative py-32 lg:py-40 bg-foreground text-background overflow-hidden">
+        <section className="pre-footer-cta relative py-20 sm:py-32 lg:py-40 bg-foreground text-background overflow-hidden">
             {/* Grain overlay */}
             <div className="pointer-events-none absolute inset-0 z-10" />
 

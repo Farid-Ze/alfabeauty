@@ -134,7 +134,7 @@ export function EventDetailContent({
                         </p>
 
                         {/* Event details grid */}
-                        <div className="mt-8 grid grid-cols-2 gap-4">
+                        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div className="border border-border-warm/60 p-5 transition-all duration-300 hover:shadow-sm">
                                 <Calendar className="h-4 w-4 text-foreground/40" />
                                 <p className="mt-2.5 text-[10px] font-bold uppercase tracking-[0.2em] text-text-muted">

@@ -2,7 +2,7 @@ import { CONTACT_EMAIL } from "@/lib/config";
 
 export function PrivacyPageContent() {
     return (
-        <main id="main-content" className="mx-auto max-w-3xl px-6 py-24 sm:px-8 lg:px-12">
+        <main id="main-content" className="mx-auto max-w-3xl px-6 pt-[calc(var(--header-height)+2rem)] pb-24 sm:px-8 lg:px-12">
             <h1 className="heading-display mb-8">Privacy Policy</h1>
             <p className="mb-4 text-sm text-text-muted">
                 Last updated: 10 March 2026

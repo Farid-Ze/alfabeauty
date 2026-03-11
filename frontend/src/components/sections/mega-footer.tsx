@@ -170,7 +170,7 @@ export function MegaFooter(): React.JSX.Element {
               >
                 <Link
                   href={pillar.href}
-                  className="group relative flex h-full min-h-[200px] flex-col justify-between overflow-hidden border border-charcoal/15 bg-surface-elevated/50 p-6 transition-[box-shadow,border-color] duration-500 ease-[var(--ease)] hover:border-charcoal/25 hover:shadow-sm"
+                  className="group relative flex h-full min-h-[140px] sm:min-h-[200px] flex-col justify-between overflow-hidden border border-charcoal/15 bg-surface-elevated/50 p-6 transition-[box-shadow,border-color] duration-500 ease-[var(--ease)] hover:border-charcoal/25 hover:shadow-sm"
                 >
                   {/* Background product image — reveals on hover */}
                   <Image
@@ -239,7 +239,7 @@ export function MegaFooter(): React.JSX.Element {
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-foreground/50 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="inline-flex items-center justify-center p-2.5 -m-2.5 text-foreground/50 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     aria-label="Instagram"
                   >
                     <Instagram className="h-4 w-4" />
@@ -250,7 +250,7 @@ export function MegaFooter(): React.JSX.Element {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackEvent("cta_whatsapp_click", { location: "footer" })}
-                    className="text-foreground/50 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="inline-flex items-center justify-center p-2.5 -m-2.5 text-foreground/50 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     aria-label="WhatsApp"
                   >
                     <MessageCircle className="h-4 w-4" />

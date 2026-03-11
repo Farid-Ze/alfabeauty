@@ -78,12 +78,12 @@ export function FeatureSplit({ reverse = false }: FeatureSplitProps): React.JSX.
                 </div>
 
                 {/* Mobile fallback — visible only on small screens */}
-                <div className="flex min-h-[350px] items-center justify-center bg-surface-elevated lg:hidden">
+                <div className="flex min-h-[200px] items-center justify-center bg-surface-elevated lg:hidden">
                     <p className="eyebrow">Education & Training</p>
                 </div>
 
                 {/* Text side — cascading reveal with blur */}
-                <div className="flex items-center bg-surface p-10 lg:p-16 xl:p-24">
+                <div className="flex items-center bg-surface p-6 sm:p-10 lg:p-16 xl:p-24">
                     <div className="w-full">
                         <FadeIn direction="right" delay={0.2} blur scale>
                             <p className="eyebrow">Our Role</p>

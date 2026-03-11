@@ -73,7 +73,7 @@ export function EducationEventsFilter({
                         onClick={() => setActiveFilter(filter.id)}
                         aria-pressed={activeFilter === filter.id}
                         className={cn(
-                            "rounded-sm px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.15em] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                            "rounded-sm px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                             activeFilter === filter.id
                                 ? "bg-foreground text-white shadow-sm"
                                 : "bg-background text-text-muted border border-border-warm/60 hover:border-foreground/40 hover:text-foreground"

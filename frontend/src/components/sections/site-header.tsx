@@ -258,7 +258,7 @@ export function SiteHeader(): React.JSX.Element {
                                 variant="ghost"
                                 size="icon"
                                 className={cn(
-                                    "lg:hidden transition-colors duration-[500ms] ease-[var(--ease)] p-1",
+                                    "lg:hidden transition-colors duration-[500ms] ease-[var(--ease)]",
                                     isSolid ? "text-foreground" : "text-white"
                                 )}
                                 aria-label="Open menu"

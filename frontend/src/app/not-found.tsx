@@ -5,7 +5,7 @@ import { ArrowLeft } from "lucide-react";
 export default function NotFound(): React.JSX.Element {
   return (
     <>
-      <main id="main-content" className="relative z-10 flex min-h-[80vh] items-center justify-center bg-background px-6 pt-[var(--header-height)]">
+      <main id="main-content" className="relative z-10 flex min-h-[80dvh] items-center justify-center bg-background px-6 pt-[var(--header-height)]">
         <div className="text-center">
           <p className="eyebrow">Page Not Found</p>
           <h1 className="heading-display mt-4">404</h1>

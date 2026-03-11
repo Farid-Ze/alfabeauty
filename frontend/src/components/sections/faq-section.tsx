@@ -61,7 +61,7 @@ function FAQAccordionItem({ item, index, isOpen, onToggle }: {
                     <span className="text-sm font-semibold tracking-tight sm:text-base">
                         {item.question}
                     </span>
-                    <span className="flex h-8 w-8 shrink-0 items-center justify-center border border-border-warm/60 transition-all duration-500 ease-[var(--ease)] group-hover:border-foreground/30 group-hover:bg-muted/30">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-border-warm/60 transition-all duration-500 ease-[var(--ease)] group-hover:border-foreground/30 group-hover:bg-muted/30">
                         {isOpen ? (
                             <Minus className="h-3.5 w-3.5" />
                         ) : (

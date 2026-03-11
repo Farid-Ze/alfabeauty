@@ -45,7 +45,7 @@ export function HeroSection(): React.JSX.Element {
     return (
         <section
             ref={sectionRef}
-            className="relative flex min-h-screen items-center overflow-hidden bg-foreground"
+            className="relative flex min-h-dvh items-center overflow-hidden bg-foreground"
         >
             {/* Background video — static, no parallax tracking */}
             <div className="pointer-events-none absolute inset-0 z-0">
@@ -83,7 +83,7 @@ export function HeroSection(): React.JSX.Element {
                     <div className="mt-5">
                         <TextReveal
                             as="h1"
-                            className="heading-display text-white"
+                            className="heading-display text-white text-balance"
                             delay={HERO_TIMING.heading}
                             rootMargin="0px"
                             split="char"

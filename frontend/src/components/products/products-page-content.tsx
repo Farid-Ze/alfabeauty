@@ -22,6 +22,12 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
+import {
+    Sheet,
+    SheetContent,
+    SheetTitle,
+    SheetTrigger,
+} from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import type { ProductListItem } from "@/components/products/product-data";
 
@@ -64,6 +70,7 @@ export function ProductsPageContent({
     const [selectedBrands, setSelectedBrands] = React.useState<string[]>([]);
     const [selectedAudience, setSelectedAudience] = React.useState<string[]>([]);
     const [showFilters, setShowFilters] = React.useState(true);
+    const [mobileFiltersOpen, setMobileFiltersOpen] = React.useState(false);
     const [sortBy, setSortBy] = React.useState("latest");
     const [searchQuery, setSearchQuery] = React.useState("");
 
@@ -157,14 +164,87 @@ export function ProductsPageContent({
 
                 {/* ─── Toolbar: Filters Toggle + Category Tabs + Sort ─── */}
                 <div className="flex items-center gap-6 overflow-x-auto py-5">
+                    {/* Desktop: toggle sidebar */}
                     <Button
                         variant="ghost"
                         onClick={() => setShowFilters(!showFilters)}
-                        className="flex shrink-0 items-center gap-2 px-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground hover:bg-transparent hover:text-foreground/70"
+                        className="hidden shrink-0 items-center gap-2 px-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground hover:bg-transparent hover:text-foreground/70 lg:flex"
                     >
                         <SlidersHorizontal className="h-4 w-4" />
                         {showFilters ? "Hide Filters" : "Show Filters"}
                     </Button>
+
+                    {/* Mobile: open filter sheet */}
+                    <Sheet open={mobileFiltersOpen} onOpenChange={setMobileFiltersOpen}>
+                        <SheetTrigger asChild>
+                            <Button
+                                variant="ghost"
+                                className="flex shrink-0 items-center gap-2 px-0 text-[11px] font-semibold uppercase tracking-[0.2em] text-foreground hover:bg-transparent hover:text-foreground/70 lg:hidden"
+                            >
+                                <SlidersHorizontal className="h-4 w-4" />
+                                Filters
+                                {(selectedBrands.length + selectedAudience.length) > 0 && (
+                                    <Badge variant="secondary" className="ml-1 h-5 min-w-5 px-1.5 text-[10px]">
+                                        {selectedBrands.length + selectedAudience.length}
+                                    </Badge>
+                                )}
+                            </Button>
+                        </SheetTrigger>
+                        <SheetContent side="left" className="w-[300px] overflow-y-auto p-6">
+                            <SheetTitle className="mb-6 text-sm font-bold uppercase tracking-[0.15em]">Filters</SheetTitle>
+                            {/* Brand filters */}
+                            <div className="mb-8">
+                                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground">Brands</h3>
+                                <div className="space-y-3">
+                                    {brandFilters.map((brand) => (
+                                        <label key={brand} className="flex cursor-pointer items-center gap-3">
+                                            <Checkbox
+                                                checked={selectedBrands.includes(brand)}
+                                                onCheckedChange={() => toggleBrand(brand)}
+                                                className="border-border-warm/60 data-[state=checked]:bg-foreground data-[state=checked]:border-foreground"
+                                            />
+                                            <span className="text-[13px] text-foreground">{brand}</span>
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
+                            <Separator className="my-6 bg-border-warm/40" />
+                            {/* Audience filters */}
+                            <div className="mb-8">
+                                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground">Audience</h3>
+                                <div className="space-y-3">
+                                    {audienceFilters.map((aud) => (
+                                        <label key={aud.id} className="flex cursor-pointer items-center gap-3">
+                                            <Checkbox
+                                                checked={selectedAudience.includes(aud.id)}
+                                                onCheckedChange={() => toggleAudience(aud.id)}
+                                                className="border-border-warm/60 data-[state=checked]:bg-foreground data-[state=checked]:border-foreground"
+                                            />
+                                            <span className="text-[13px] text-foreground">{aud.label}</span>
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
+                            <Separator className="my-6 bg-border-warm/40" />
+                            {/* Category checklist */}
+                            <div>
+                                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground">Categories</h3>
+                                <div className="space-y-3">
+                                    {categories.filter((c) => c.id !== "all").map((cat) => (
+                                        <label key={cat.id} className="flex cursor-pointer items-center gap-3">
+                                            <Checkbox
+                                                checked={activeCategory === cat.id}
+                                                onCheckedChange={() => setActiveCategory(activeCategory === cat.id ? "all" : cat.id)}
+                                                className="border-border-warm/60 data-[state=checked]:bg-foreground data-[state=checked]:border-foreground"
+                                            />
+                                            <span className="text-[13px] text-foreground">{cat.label}</span>
+                                            <span className="ml-auto text-[11px] text-text-muted">{categoryCount[cat.id]}</span>
+                                        </label>
+                                    ))}
+                                </div>
+                            </div>
+                        </SheetContent>
+                    </Sheet>
 
                     <Separator orientation="vertical" className="h-5 bg-border-warm/40" />
 
@@ -176,7 +256,7 @@ export function ProductsPageContent({
                                 onClick={() => setActiveCategory(cat.id)}
                                 aria-pressed={activeCategory === cat.id}
                                 className={cn(
-                                    "shrink-0 rounded-sm px-4 py-1.5 text-[11px] font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                                    "shrink-0 rounded-sm px-4 py-2.5 text-xs font-semibold transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
                                     activeCategory === cat.id
                                         ? "bg-foreground text-white"
                                         : "text-text-muted hover:bg-surface hover:text-foreground"

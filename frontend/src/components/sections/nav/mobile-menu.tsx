@@ -68,7 +68,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
                 <span className="text-[11px] font-bold uppercase tracking-[0.2em]">Menu</span>
                 <button
                     onClick={onClose}
-                    className="flex h-9 w-9 items-center justify-center text-foreground/60 transition-colors duration-300 hover:text-foreground"
+                    className="flex h-11 w-11 items-center justify-center text-foreground/60 transition-colors duration-300 hover:text-foreground"
                     aria-label="Close menu"
                 >
                     <X className="h-5 w-5" />
@@ -76,7 +76,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
             </div>
 
             {/* Links */}
-            <div className="flex-1 overflow-y-auto py-4">
+            <div className="flex-1 overflow-y-auto overscroll-contain py-4">
                 {NAV_SECTIONS.map((section) => (
                     <motion.div key={section.label} variants={mobileMenuItemFade}>
                         {section.children ? (
@@ -108,7 +108,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
                                                         key={child.label}
                                                         href={child.href}
                                                         onClick={onClose}
-                                                        className="block py-2.5 text-[12px] text-muted-foreground transition-colors duration-300 hover:text-foreground"
+                                                        className="block py-3 text-[13px] text-muted-foreground transition-colors duration-300 hover:text-foreground"
                                                     >
                                                         {child.label}
                                                     </Link>
@@ -158,7 +158,7 @@ export function MobileMenu({ onClose }: MobileMenuProps) {
                             key={pillar.label}
                             href={pillar.href}
                             onClick={onClose}
-                            className="py-2 text-center text-[10px] font-semibold uppercase tracking-[0.15em] text-muted-foreground/60 transition-colors duration-300 hover:text-foreground"
+                            className="py-3.5 text-center text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground/60 transition-colors duration-300 hover:text-foreground"
                         >
                             {pillar.label}
                         </Link>

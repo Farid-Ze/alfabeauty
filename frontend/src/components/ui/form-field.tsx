@@ -63,7 +63,7 @@ export function FormField({
  */
 export function fieldClass(error?: string): string {
   return cn(
-    "w-full border bg-background px-4 py-2.5 text-sm outline-none transition-colors focus:border-foreground placeholder:text-text-muted/60",
+    "w-full border bg-background px-4 py-2.5 text-base sm:text-sm outline-none transition-colors focus:border-foreground placeholder:text-text-muted/60",
     error ? "border-brand-crimson" : "border-border-warm"
   );
 }

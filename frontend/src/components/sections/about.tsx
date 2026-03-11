@@ -133,7 +133,7 @@ export function AboutSection(): React.JSX.Element {
                         </div>
 
                         {/* Mobile fallback — visible only on small screens */}
-                        <div className="mt-8 flex min-h-[350px] items-center justify-center bg-surface-elevated lg:hidden">
+                        <div className="mt-8 flex min-h-[200px] items-center justify-center bg-surface-elevated lg:hidden">
                             <p className="eyebrow">Since 2007</p>
                         </div>
                     </div>
