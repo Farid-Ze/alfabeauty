@@ -55,7 +55,7 @@ export function ProductsPanel() {
                     <NavigationMenuLink asChild>
                         <Link
                             href="/products"
-                            className="inline-flex w-full items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 transition-colors duration-300 hover:text-white"
+                            className="flex flex-row items-center justify-between gap-0 rounded-none p-0 text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 transition-colors duration-300 hover:text-white"
                         >
                             View All Products
                             <ArrowRight className="h-3.5 w-3.5" />

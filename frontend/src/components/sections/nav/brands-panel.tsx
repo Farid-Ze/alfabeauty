@@ -82,7 +82,7 @@ export function BrandsPanel() {
                     <NavigationMenuLink asChild>
                         <Link
                             href="/contact"
-                            className="inline-flex w-full items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/60 transition-colors duration-300 hover:text-foreground"
+                            className="flex flex-row items-center justify-between gap-0 rounded-none p-0 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/60 transition-colors duration-300 hover:text-foreground"
                         >
                             Contact Us
                             <ArrowRight className="h-3.5 w-3.5" />

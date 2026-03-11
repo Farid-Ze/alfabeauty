@@ -60,7 +60,7 @@ export function SiteHeader(): React.JSX.Element {
             setMenuClosing(false);
         } else if (menuWasOpen.current) {
             setMenuClosing(true);
-            const id = setTimeout(() => setMenuClosing(false), 800);
+            const id = setTimeout(() => setMenuClosing(false), 500);
             return () => clearTimeout(id);
         }
         menuWasOpen.current = menuOpen;
@@ -124,7 +124,7 @@ export function SiteHeader(): React.JSX.Element {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4, ease: smoothEase }}
+                    transition={{ duration: 0.35, ease: smoothEase }}
                     aria-hidden="true"
                 />
             )}

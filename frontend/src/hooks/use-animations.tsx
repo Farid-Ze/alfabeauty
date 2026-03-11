@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { smoothEase, cinematicEase, PARALLAX, HERO_TIMING } from "@/lib/motion";
+import { smoothEase, PARALLAX } from "@/lib/motion";
 
 /* ─────────────────────────────────────────────────────────────────────
  * useParallax V4 — Scroll-linked parallax offset with opacity fade.
@@ -171,42 +171,5 @@ export function LineGrow({ className, vertical }: LineGrowProps) {
                 style={{ ...scaleProps, transformOrigin: vertical ? "top" : "left" }}
             />
         </div>
-    );
-}
-
-/* ─────────────────────────────────────────────────────────────────────
- * ScrollIndicator V4 — Scroll indicator with glow pulse.
- *
- * V4: Adds glow pulse on the moving line segment, refined opacity.
- * ───────────────────────────────────────────────────────────────────── */
-
-export function ScrollIndicator() {
-    return (
-        <motion.div
-            className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-3"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: HERO_TIMING.scroll, duration: 1, ease: cinematicEase }}
-        >
-            <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/30">
-                Scroll
-            </span>
-
-            {/* Vertical line indicator with glow pulse */}
-            <div className="relative h-10 w-px overflow-hidden bg-white/15">
-                <motion.div
-                    className="absolute inset-x-0 top-0 h-full w-full bg-white/60"
-                    style={{ boxShadow: "0 0 6px 1px rgba(255,255,255,0.3)" }}
-                    animate={{
-                        y: ["-100%", "100%"],
-                    }}
-                    transition={{
-                        duration: 2.2,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                />
-            </div>
-        </motion.div>
     );
 }

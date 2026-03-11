@@ -6,10 +6,8 @@ import Image from "next/image";
 import {
   motion,
   useScroll,
-  useTransform,
   useMotionValueEvent,
 } from "framer-motion";
-import { Separator } from "@/components/ui/separator";
 import {
   ArrowUp,
   ArrowUpRight,
@@ -206,7 +204,7 @@ export function MegaFooter(): React.JSX.Element {
                   </div>
 
                   {/* Yucca hover-reveal "Explore" CTA with animated underline */}
-                  <div className="relative z-10 mt-3 flex items-center gap-1 text-xs font-bold uppercase tracking-[0.12em] text-brand-crimson translate-y-2 opacity-0 transition-[transform,opacity] duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+                  <div className="relative z-10 mt-3 flex items-center gap-1 text-xs font-bold uppercase tracking-[0.12em] text-brand-crimson sm:translate-y-2 sm:opacity-0 transition-[transform,opacity] duration-300 sm:group-hover:translate-y-0 sm:group-hover:opacity-100">
                     <span className="link-animated">Explore</span>
                     <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                   </div>
@@ -223,22 +221,17 @@ export function MegaFooter(): React.JSX.Element {
         <FadeIn delay={0.3} blur>
           <div className="border-t border-charcoal/10 bg-surface-elevated">
             <motion.div
-              className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-6 py-4 sm:flex-row sm:px-8 lg:px-12"
+              className="mx-auto flex max-w-[1400px] flex-col items-center gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12"
               variants={listStagger}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
               {/* Left: Copyright + Social icons */}
-              <motion.div className="flex items-center gap-5" variants={listItemFadeIn}>
-                <p className="text-[13px] text-charcoal">
-                  © {currentYear} {SITE_NAME}. All Rights Reserved
+              <motion.div className="flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-5" variants={listItemFadeIn}>
+                <p className="text-sm font-medium text-foreground/70">
+                  © {currentYear} {SITE_NAME}
                 </p>
-
-                <Separator
-                  orientation="vertical"
-                  className="h-4 bg-charcoal/15"
-                />
 
                 {/* Social icons (Yucca pattern) — hover scale micro-interaction */}
                 <div className="flex items-center gap-3">
@@ -246,7 +239,7 @@ export function MegaFooter(): React.JSX.Element {
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-charcoal/70 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="text-foreground/50 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     aria-label="Instagram"
                   >
                     <Instagram className="h-4 w-4" />
@@ -257,7 +250,7 @@ export function MegaFooter(): React.JSX.Element {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackEvent("cta_whatsapp_click", { location: "footer" })}
-                    className="text-charcoal/70 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="text-foreground/50 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     aria-label="WhatsApp"
                   >
                     <MessageCircle className="h-4 w-4" />
@@ -267,12 +260,12 @@ export function MegaFooter(): React.JSX.Element {
               </motion.div>
 
               {/* Right: Legal links */}
-              <motion.div className="flex items-center gap-6" variants={listItemFadeIn}>
+              <motion.div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1" variants={listItemFadeIn}>
                 {LEGAL_LINKS.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-[13px] text-charcoal transition-colors duration-300 hover:text-foreground hover:underline underline-offset-4"
+                    className="text-sm font-medium text-foreground/60 transition-colors duration-300 hover:text-foreground hover:underline underline-offset-4"
                   >
                     {link.label}
                   </Link>

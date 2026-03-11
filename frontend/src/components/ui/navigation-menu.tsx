@@ -13,14 +13,14 @@ const CONTENT_MOTION = [
   "data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out",
   "data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52",
   "data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52",
-  // fullWidth: instant opacity toggle (Yucca — no crossfade, no slide)
-  "group-data-[full-width]/navigation-menu:data-[motion^=from-]:fade-in-0",
-  "group-data-[full-width]/navigation-menu:data-[motion^=to-]:fade-out-0",
+  // fullWidth: brief crossfade between panels (no slide)
+  "group-data-[full-width]/navigation-menu:data-[motion^=from-]:fade-in",
+  "group-data-[full-width]/navigation-menu:data-[motion^=to-]:fade-out",
   "group-data-[full-width]/navigation-menu:data-[motion=from-end]:slide-in-from-right-0",
   "group-data-[full-width]/navigation-menu:data-[motion=from-start]:slide-in-from-left-0",
   "group-data-[full-width]/navigation-menu:data-[motion=to-end]:slide-out-to-right-0",
   "group-data-[full-width]/navigation-menu:data-[motion=to-start]:slide-out-to-left-0",
-  "group-data-[full-width]/navigation-menu:[animation-duration:0ms]",
+  "group-data-[full-width]/navigation-menu:[animation-duration:200ms]",
   // layout
   "top-0 left-0 w-full p-2 pr-2.5 md:absolute md:w-auto",
   "group-data-[full-width]/navigation-menu:md:w-full",
@@ -56,11 +56,11 @@ const VIEWPORT_BASE = [
 const VIEWPORT_FULL_WIDTH = [
   "mt-0 w-screen rounded-none border-0 border-b border-border-warm/60 bg-background text-foreground",
   "will-change-[height] translate-z-0",
-  "transition-[height] duration-[350ms] ease-[var(--ease-menu-open)]",
-  // Open: fade in only (no slide — height transition handles reveal)
+  "transition-[height] duration-[400ms] ease-[var(--ease-menu-open)]",
+  // Open/close: smooth opacity fade matching underline timing
   "data-[state=open]:animate-in data-[state=closed]:animate-out",
-  "data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0",
-  "duration-300 ease-[var(--ease-menu-open)]",
+  "data-[state=open]:fade-in data-[state=closed]:fade-out",
+  "duration-[400ms] ease-[var(--ease-menu-open)]",
 ].join(" ")
 
 const VIEWPORT_DROPDOWN = [

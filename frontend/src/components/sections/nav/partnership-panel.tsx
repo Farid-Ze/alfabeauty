@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { ArrowRight, Handshake, Store, GraduationCap } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { NavigationMenuLink } from "@/components/ui/navigation-menu";
 
 const PARTNERSHIP_ITEMS = [
@@ -9,19 +9,16 @@ const PARTNERSHIP_ITEMS = [
         title: "Salon Partnership",
         description: "Exclusive pricing, priority access, and dedicated support for your salon.",
         href: "/partnership",
-        icon: Store,
     },
     {
         title: "Distribution",
         description: "Become an authorized distributor. Nationwide opportunities available.",
         href: "/partnership",
-        icon: Handshake,
     },
     {
         title: "Education Partner",
         description: "Collaborate with Alfa Beauty Academy to host training programs.",
         href: "/partnership",
-        icon: GraduationCap,
     },
 ];
 
@@ -50,7 +47,7 @@ export function PartnershipPanel() {
                     <NavigationMenuLink asChild>
                         <Link
                             href="/partnership"
-                            className="inline-flex w-full items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 transition-colors duration-300 hover:text-white"
+                            className="flex flex-row items-center justify-between gap-0 rounded-none p-0 text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 transition-colors duration-300 hover:text-white"
                         >
                             Explore Partnership
                             <ArrowRight className="h-3.5 w-3.5" />
@@ -65,50 +62,42 @@ export function PartnershipPanel() {
                     <NavigationMenuLink key={item.title} asChild>
                         <Link
                             href={item.href}
-                            className="group relative flex flex-col justify-between overflow-hidden bg-background p-6"
+                            className="group relative flex min-h-[120px] flex-col justify-end overflow-hidden bg-background p-5"
                         >
-                            <div>
-                                <div className="flex h-10 w-10 items-center justify-center bg-muted">
-                                    <item.icon className="h-4.5 w-4.5 text-muted-foreground" />
-                                </div>
-                                <h4 className="mt-3 text-[14px] font-bold leading-snug group-hover:underline underline-offset-4 decoration-foreground/30">
-                                    {item.title}
-                                </h4>
-                                <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground/60 transition-colors duration-300 group-hover:text-muted-foreground">
-                                    {item.description}
-                                </p>
-                            </div>
-                            <div className="mt-4">
-                                <div className="mb-3 h-px bg-border-warm/40" />
-                                <span className="inline-flex w-full items-center justify-between text-[11px] font-bold text-foreground/50 transition-colors duration-300 group-hover:text-foreground">
-                                    Learn More
-                                    <ArrowRight className="h-3.5 w-3.5" />
-                                </span>
-                            </div>
+                            <h4 className="text-[13px] font-bold leading-snug group-hover:underline underline-offset-4 decoration-foreground/30">
+                                {item.title}
+                            </h4>
+                            <p className="mt-1.5 text-[12px] leading-relaxed text-muted-foreground/60 transition-colors duration-300 group-hover:text-muted-foreground">
+                                {item.description}
+                            </p>
+                            <span className="mt-2 inline-flex items-center gap-1 text-[11px] text-muted-foreground/60 transition-colors duration-300 group-hover:text-foreground">
+                                Learn More
+                                <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                            </span>
                             <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand-crimson transition-[width] duration-500 group-hover:w-full" />
                         </Link>
                     </NavigationMenuLink>
                 ))}
 
                 {/* CTA cell */}
-                <div className="flex flex-col justify-between bg-background p-6">
+                <div className="flex flex-col justify-between bg-background p-5">
                     <div>
                         <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/50">
                             Ready to Partner?
                         </p>
-                        <h4 className="mt-2 text-[15px] font-bold leading-snug">
+                        <h4 className="mt-2 text-[14px] font-bold leading-snug">
                             Get Started Today
                         </h4>
-                        <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground/60">
+                        <p className="mt-1.5 text-[12px] leading-relaxed text-muted-foreground/60">
                             Contact our partnership team to discuss the best option for your business.
                         </p>
                     </div>
-                    <div className="mt-4">
+                    <div className="mt-3">
                         <div className="mb-3 h-px bg-border-warm/40" />
                         <NavigationMenuLink asChild>
                             <Link
                                 href="/contact"
-                                className="inline-flex w-full items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/60 transition-colors duration-300 hover:text-foreground"
+                                className="flex flex-row items-center justify-between gap-0 rounded-none p-0 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/60 transition-colors duration-300 hover:text-foreground"
                             >
                                 Contact Us
                                 <ArrowRight className="h-3.5 w-3.5" />

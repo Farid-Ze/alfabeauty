@@ -1,7 +1,7 @@
 ﻿"use client";
 
 import Link from "next/link";
-import { ArrowRight, BookOpen, Calendar } from "lucide-react";
+import { ArrowRight, Calendar } from "lucide-react";
 import { NavigationMenuLink } from "@/components/ui/navigation-menu";
 import { getFeaturedEvent } from "@/components/education/education-data";
 
@@ -10,25 +10,21 @@ const EDUCATION_ITEMS = [
         title: "Technical Training",
         description: "Cutting, colouring, and styling workshops with industry professionals.",
         href: "/education",
-        icon: BookOpen,
     },
     {
         title: "Product Knowledge",
         description: "Deep-dive sessions on formulations and application methods.",
         href: "/education",
-        icon: BookOpen,
     },
     {
         title: "Business Development",
         description: "Salon management, marketing, and client retention strategies.",
         href: "/education",
-        icon: BookOpen,
     },
     {
         title: "Events & Seminars",
         description: "Brand launches, live demos, and networking opportunities.",
         href: "/education/events",
-        icon: Calendar,
     },
 ];
 
@@ -94,7 +90,7 @@ export function EducationPanel() {
                     <NavigationMenuLink asChild>
                         <Link
                             href={featured ? `/education/events/${featured.id}` : "/education"}
-                            className="inline-flex w-full items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 transition-colors duration-300 hover:text-white"
+                            className="flex flex-row items-center justify-between gap-0 rounded-none p-0 text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 transition-colors duration-300 hover:text-white"
                         >
                             {featured ? "View Event Details" : "Explore Programs"}
                             <ArrowRight className="h-3.5 w-3.5" />
@@ -109,20 +105,15 @@ export function EducationPanel() {
                     <NavigationMenuLink key={item.title} asChild>
                         <Link
                             href={item.href}
-                            className="group relative flex flex-col justify-between overflow-hidden bg-background p-6"
+                            className="group relative flex min-h-[120px] flex-col justify-end overflow-hidden bg-background p-5"
                         >
-                            <div>
-                                <div className="flex h-10 w-10 items-center justify-center bg-muted">
-                                    <item.icon className="h-4.5 w-4.5 text-muted-foreground" />
-                                </div>
-                                <h4 className="mt-3 text-[13px] font-bold leading-snug group-hover:underline underline-offset-4 decoration-foreground/30">
-                                    {item.title}
-                                </h4>
-                                <p className="mt-1.5 text-[12px] leading-relaxed text-muted-foreground/60 transition-colors duration-300 group-hover:text-muted-foreground">
-                                    {item.description}
-                                </p>
-                            </div>
-                            <span className="mt-3 inline-flex items-center gap-1 text-[11px] text-muted-foreground/60 transition-colors duration-300 group-hover:text-foreground">
+                            <h4 className="text-[13px] font-bold leading-snug group-hover:underline underline-offset-4 decoration-foreground/30">
+                                {item.title}
+                            </h4>
+                            <p className="mt-1.5 text-[12px] leading-relaxed text-muted-foreground/60 transition-colors duration-300 group-hover:text-muted-foreground">
+                                {item.description}
+                            </p>
+                            <span className="mt-2 inline-flex items-center gap-1 text-[11px] text-muted-foreground/60 transition-colors duration-300 group-hover:text-foreground">
                                 Explore
                                 <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
                             </span>
