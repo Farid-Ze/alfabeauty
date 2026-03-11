@@ -96,16 +96,16 @@ export function MegaFooter(): React.JSX.Element {
 
   return (
     <>
-      {/* ── Spacer: pushes content so the fixed footer reveals underneath ── */}
+      {/* ── Spacer: pushes content so the fixed footer reveals underneath (sm+ only) ── */}
       <div
-        className="pointer-events-none"
+        className="pointer-events-none hidden sm:block"
         style={{ height: footerHeight }}
         aria-hidden="true"
       />
 
       <footer
         ref={footerRef}
-        className="fixed inset-x-0 bottom-0 z-0 flex min-h-[420px] sm:min-h-[520px] flex-col bg-surface"
+        className="relative sm:fixed sm:inset-x-0 sm:bottom-0 z-0 flex sm:min-h-[520px] flex-col bg-surface"
       >
         {/* Warm vignette atmosphere */}
         <div className="absolute inset-0 vignette-warm pointer-events-none" />
@@ -117,7 +117,7 @@ export function MegaFooter(): React.JSX.Element {
           }}
         />
         {/* ─── Top section: Headline + Scroll-to-top ─── */}
-        <div className="mx-auto flex w-full max-w-[1400px] items-start justify-between px-6 pt-14 sm:px-8 lg:px-12">
+        <div className="mx-auto flex w-full max-w-[1400px] items-start justify-between px-6 pt-10 sm:pt-14 sm:px-8 lg:px-12">
           <div className="max-w-xl">
             <TextReveal
               as="h2"
@@ -146,18 +146,18 @@ export function MegaFooter(): React.JSX.Element {
         </div>
 
         {/* Animated line under headline */}
-        <div className="mx-auto w-full max-w-[1400px] px-6 pt-6 sm:px-8 lg:px-12">
+        <div className="mx-auto w-full max-w-[1400px] px-6 pt-4 sm:pt-6 sm:px-8 lg:px-12">
           <LineGrow className="h-px bg-charcoal/10" />
         </div>
 
         {/* ─── Main: Logo wordmark + 3 Pillar cards ─── */}
-        <div className="mx-auto flex w-full max-w-[1400px] flex-1 items-center gap-4 sm:gap-8 px-6 sm:px-8 lg:gap-12 lg:px-12">
+        <div className="mx-auto flex w-full max-w-[1400px] flex-1 items-center gap-3 py-6 sm:gap-8 sm:py-0 px-6 sm:px-8 lg:gap-12 lg:px-12">
           {/* Brand wordmark (Yucca large logo equivalent) — real parallax */}
           <WordmarkParallax />
 
           {/* 3 Pillar cards (Yucca: Food Service / Food Processing / Agriculture) */}
           <motion.div
-            className="grid w-full flex-1 grid-cols-1 gap-4 sm:grid-cols-3"
+            className="grid w-full flex-1 grid-cols-1 gap-3 sm:grid-cols-3 sm:gap-4"
             variants={cardStagger}
             initial="hidden"
             whileInView="visible"
@@ -170,7 +170,7 @@ export function MegaFooter(): React.JSX.Element {
               >
                 <Link
                   href={pillar.href}
-                  className="group relative flex h-full min-h-[140px] sm:min-h-[200px] flex-col justify-between overflow-hidden border border-charcoal/15 bg-surface-elevated/50 p-6 transition-[box-shadow,border-color] duration-500 ease-[var(--ease)] hover:border-charcoal/25 hover:shadow-sm"
+                  className="group relative flex h-full min-h-[100px] sm:min-h-[200px] flex-col justify-between overflow-hidden border border-charcoal/15 bg-surface-elevated/50 p-4 sm:p-6 transition-[box-shadow,border-color] duration-500 ease-[var(--ease)] hover:border-charcoal/25 hover:shadow-sm"
                 >
                   {/* Background product image — reveals on hover */}
                   <Image
@@ -193,7 +193,7 @@ export function MegaFooter(): React.JSX.Element {
                     <h3 className="text-base font-bold text-foreground">
                       {pillar.label}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-text-muted">
+                    <p className="mt-1.5 sm:mt-3 text-xs sm:text-sm leading-relaxed text-text-muted">
                       {pillar.description}
                     </p>
                   </div>
@@ -221,15 +221,15 @@ export function MegaFooter(): React.JSX.Element {
         <FadeIn delay={0.3} blur>
           <div className="border-t border-charcoal/10 bg-surface-elevated">
             <motion.div
-              className="mx-auto flex max-w-[1400px] flex-col items-center gap-4 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-8 lg:px-12"
+              className="mx-auto flex max-w-[1400px] flex-row items-center justify-between gap-4 px-5 py-4 sm:px-8 sm:py-5 lg:px-12"
               variants={listStagger}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.3 }}
             >
               {/* Left: Copyright + Social icons */}
-              <motion.div className="flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-5" variants={listItemFadeIn}>
-                <p className="text-sm font-medium text-foreground/70">
+              <motion.div className="flex flex-row items-center gap-3 sm:gap-5" variants={listItemFadeIn}>
+                <p className="text-[11px] sm:text-sm font-medium text-foreground/70 whitespace-nowrap">
                   © {currentYear} {SITE_NAME}
                 </p>
 
@@ -260,12 +260,12 @@ export function MegaFooter(): React.JSX.Element {
               </motion.div>
 
               {/* Right: Legal links */}
-              <motion.div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1" variants={listItemFadeIn}>
+              <motion.div className="flex flex-wrap items-center justify-end gap-x-4 sm:gap-x-6 gap-y-1" variants={listItemFadeIn}>
                 {LEGAL_LINKS.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-sm font-medium text-foreground/60 transition-colors duration-300 hover:text-foreground hover:underline underline-offset-4"
+                    className="text-[11px] sm:text-sm font-medium text-foreground/60 transition-colors duration-300 hover:text-foreground hover:underline underline-offset-4"
                   >
                     {link.label}
                   </Link>
