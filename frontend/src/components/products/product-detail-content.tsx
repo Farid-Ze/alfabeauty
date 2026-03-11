@@ -10,7 +10,7 @@ export function ProductDetailContent({ product }: { product: Product }): React.J
     return (
         <main id="main-content" className="relative z-10 min-h-screen bg-background pt-[var(--header-height)]">
             {/* ─── Breadcrumb / Back ─── */}
-            <nav aria-label="Breadcrumb" className="mx-auto max-w-[1400px] px-6 py-8 sm:px-8 lg:px-12">
+            <nav aria-label="Breadcrumb" className="mx-auto max-w-[1400px] px-6 py-4 sm:py-8 sm:px-8 lg:px-12">
                 <Link
                     href="/products"
                     className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-text-muted transition-colors hover:text-foreground"
@@ -22,9 +22,9 @@ export function ProductDetailContent({ product }: { product: Product }): React.J
 
             {/* ─── Hero Section ─── */}
             <section className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-                <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+                <div className="grid gap-6 sm:gap-12 lg:grid-cols-2 lg:gap-20">
                     {/* Left: Main Image */}
-                    <div className="relative aspect-square overflow-hidden bg-surface lg:aspect-[4/5]">
+                    <div className="relative aspect-[3/4] sm:aspect-square overflow-hidden bg-surface lg:aspect-[4/5]">
                         {product.image ? (
                             <Image
                                 src={product.image}
@@ -47,7 +47,7 @@ export function ProductDetailContent({ product }: { product: Product }): React.J
                     </div>
 
                     {/* Right: Details */}
-                    <div className="flex flex-col justify-center py-8">
+                    <div className="flex flex-col justify-center py-4 sm:py-8">
                         <div className="mb-6 flex items-center gap-4">
                             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-text-muted">
                                 {product.brand}
@@ -97,14 +97,14 @@ export function ProductDetailContent({ product }: { product: Product }): React.J
 
             {/* ─── Info Slides (Horizontal Scroll) ─── */}
             {product.infoSlides && product.infoSlides.length > 0 && (
-                <section className="border-t border-border-warm/40 bg-surface-elevated py-20 mt-20">
+                <section className="border-t border-border-warm/40 bg-surface-elevated py-12 mt-12 sm:py-20 sm:mt-20">
                     <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                         <h2 className="mb-12 heading-section text-foreground">
                             Product Features & Technology
                         </h2>
                         <div className="flex gap-6 overflow-x-auto pb-8 scrollbar-hide">
                             {product.infoSlides.map((slide, i) => (
-                                <div key={i} className="relative aspect-[4/5] w-[280px] shrink-0 overflow-hidden bg-background shadow-sm md:w-[320px]">
+                                <div key={i} className="relative aspect-[4/5] w-[75vw] max-w-[320px] shrink-0 overflow-hidden bg-background shadow-sm md:w-[320px]">
                                     <Image
                                         src={slide.src}
                                         alt={`${product.name} feature ${i + 1}`}

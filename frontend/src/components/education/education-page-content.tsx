@@ -45,7 +45,7 @@ export function EducationPageContent() {
     return (
         <main id="main-content" className="relative z-10 min-h-screen bg-background pt-[var(--header-height)]">
             {/* ─── §1: Hero Banner ─── */}
-            <section className="bg-surface py-20 lg:py-28">
+            <section className="bg-surface py-14 sm:py-20 lg:py-28">
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
                         {/* Text side */}
@@ -75,7 +75,7 @@ export function EducationPageContent() {
 
                         {/* Image placeholder */}
                         <div className="flex items-center justify-center">
-                            <div className="flex aspect-[4/3] w-full items-center justify-center border border-dashed border-border-warm/60 bg-surface-elevated">
+                            <div className="flex aspect-[16/9] sm:aspect-[4/3] w-full items-center justify-center border border-dashed border-border-warm/60 bg-surface-elevated">
                                 <div className="text-center">
                                     <BookOpen className="mx-auto h-10 w-10 text-text-muted/30" />
                                     <p className="mt-3 text-[11px] font-bold uppercase tracking-[0.2em] text-text-muted">
@@ -137,7 +137,7 @@ export function EducationPageContent() {
             {featuredEvent && (
                 <FadeIn>
                 <section
-                    className="bg-background py-20 lg:py-28"
+                    className="bg-background py-14 sm:py-20 lg:py-28"
                 >
                     <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                         <p className="eyebrow">
@@ -153,7 +153,7 @@ export function EducationPageContent() {
                         >
                             <div className="grid grid-cols-1 gap-0 overflow-hidden border border-border-warm/60 transition-all duration-300 hover:shadow-sm lg:grid-cols-2">
                                 {/* Image area */}
-                                <div className="relative flex aspect-[16/10] items-center justify-center bg-gradient-to-br from-foreground/[0.02] to-foreground/[0.06] lg:aspect-auto lg:min-h-[400px]">
+                                <div className="relative flex aspect-[16/9] sm:aspect-[16/10] items-center justify-center bg-gradient-to-br from-foreground/[0.02] to-foreground/[0.06] lg:aspect-auto lg:min-h-[400px]">
                                     <div className="text-center">
                                         <Star className="mx-auto h-12 w-12 text-foreground/15" />
                                         <p className="mt-3 text-[11px] font-bold uppercase tracking-[0.2em] text-text-muted">
@@ -172,7 +172,7 @@ export function EducationPageContent() {
                                 </div>
 
                                 {/* Info */}
-                                <div className="flex flex-col justify-center p-8 lg:p-12">
+                                <div className="flex flex-col justify-center p-5 sm:p-8 lg:p-12">
                                     <div className="flex flex-wrap items-center gap-4 text-[12px] text-text-muted">
                                         <span className="flex items-center gap-1.5">
                                             <Calendar className="h-3.5 w-3.5" />
@@ -237,7 +237,7 @@ export function EducationPageContent() {
             {/* ─── §4: Upcoming Events Grid ─── */}
             <FadeIn>
             <section
-                className="bg-surface py-20 lg:py-28"
+                className="bg-surface py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <EducationEventsFilter events={upcomingEvents} />
@@ -248,7 +248,7 @@ export function EducationPageContent() {
             {/* ─── §5: Past Events ─── */}
             <FadeIn>
             <section
-                className="bg-background py-20 lg:py-28"
+                className="bg-background py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <p className="eyebrow">
@@ -298,7 +298,7 @@ export function EducationPageContent() {
             {/* ─── §6: Articles / Insights ─── */}
             <FadeIn>
             <section
-                className="bg-background py-20 lg:py-28"
+                className="bg-background py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <div className="flex items-end justify-between">
@@ -357,7 +357,7 @@ export function EducationPageContent() {
             {/* ─── §7: CTA Band ─── */}
             <FadeIn>
             <section
-                className="bg-foreground py-20 lg:py-28"
+                className="bg-foreground py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 text-center sm:px-8 lg:px-12">
                     <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/50">

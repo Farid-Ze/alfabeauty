@@ -234,7 +234,7 @@ export function PartnershipForm(): React.JSX.Element {
     /* ─── Form ─── */
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-10" noValidate>
+        <form onSubmit={handleSubmit} className="space-y-7 sm:space-y-10" noValidate>
             {/* ─── Server error banner ─── */}
             {serverError && (
                 <div className="flex items-start gap-3 border border-brand-crimson/30 bg-brand-crimson/5 p-4" role="alert">
@@ -280,6 +280,7 @@ export function PartnershipForm(): React.JSX.Element {
                                     e.target.value
                                 )
                             }
+                            autoComplete="organization"
                             className={fieldClass(
                                 errors.business_name
                             )}
@@ -327,6 +328,7 @@ export function PartnershipForm(): React.JSX.Element {
                             onChange={(e) =>
                                 onChange("city", e.target.value)
                             }
+                            autoComplete="address-level2"
                             className={fieldClass(errors.city)}
                         />
                     </FormField>
@@ -354,6 +356,7 @@ export function PartnershipForm(): React.JSX.Element {
                                     e.target.value
                                 )
                             }
+                            autoComplete="name"
                             className={fieldClass(
                                 errors.contact_name
                             )}
@@ -374,6 +377,8 @@ export function PartnershipForm(): React.JSX.Element {
                                     e.target.value
                                 )
                             }
+                            autoComplete="tel"
+                            inputMode="tel"
                             className={fieldClass(
                                 errors.phone_whatsapp
                             )}
@@ -388,6 +393,7 @@ export function PartnershipForm(): React.JSX.Element {
                             onChange={(e) =>
                                 onChange("email", e.target.value)
                             }
+                            autoComplete="email"
                             className={fieldClass()}
                         />
                     </FormField>
@@ -427,6 +433,7 @@ export function PartnershipForm(): React.JSX.Element {
                                             e.target.value
                                         )
                                     }
+                                    inputMode="numeric"
                                     className={fieldClass()}
                                 />
                             </FormField>

@@ -61,7 +61,7 @@ export function ContactPageContent() {
     return (
         <main id="main-content" className="relative z-10 min-h-screen bg-background pt-[var(--header-height)]">
             {/* ─── §1: Hero ─── */}
-            <section className="bg-surface py-20 lg:py-28">
+            <section className="bg-surface py-14 sm:py-20 lg:py-28">
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <div className="mx-auto max-w-2xl text-center">
                         <p className="eyebrow">
@@ -83,12 +83,12 @@ export function ContactPageContent() {
             {/* ─── §2: Form + Meet Us ─── */}
             <FadeIn>
             <section
-                className="bg-background py-20 lg:py-28"
+                className="bg-background py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-                    <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-20">
+                    <div className="grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-[1.5fr_1fr] lg:gap-20">
                         {/* Left: Contact Form */}
-                        <div>
+                        <div className="order-2 lg:order-1">
                             <p className="eyebrow text-text-muted">
                                 Send a Message
                             </p>
@@ -100,13 +100,13 @@ export function ContactPageContent() {
                                 get back to you as soon as possible.
                             </p>
 
-                            <div className="mt-8 border border-border-warm/60 bg-background p-8 lg:p-10">
+                            <div className="mt-8 border border-border-warm/60 bg-background p-5 sm:p-8 lg:p-10">
                                 <ContactForm />
                             </div>
                         </div>
 
                         {/* Right: Meet Us Info Cards */}
-                        <div>
+                        <div className="order-1 lg:order-2">
                             <p className="eyebrow text-text-muted">
                                 Meet Us
                             </p>
@@ -210,10 +210,10 @@ export function ContactPageContent() {
             {/* ─── §3: FAQ ─── */}
             <FadeIn>
             <section
-                className="bg-surface py-20 lg:py-28"
+                className="bg-surface py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-                    <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-20">
+                    <div className="grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-20">
                         {/* Left: heading */}
                         <div>
                             <p className="eyebrow text-text-muted">

@@ -130,7 +130,7 @@ export function ProductsPageContent({
         <main id="main-content" className="relative z-10 min-h-screen bg-background pt-[var(--header-height)]">
             {/* ─── Page Title + Search ─── */}
             <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-                <div className="flex items-end justify-between pb-8 pt-14">
+                <div className="flex items-end justify-between pb-6 pt-8 sm:pb-8 sm:pt-14">
                     <h1 className="heading-display text-foreground">
                         Product Catalogue
                     </h1>
@@ -145,7 +145,7 @@ export function ProductsPageContent({
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         aria-label="Search products"
-                        className="flex-1 bg-transparent text-[14px] font-medium outline-none placeholder:text-text-muted"
+                        className="flex-1 bg-transparent text-base font-medium outline-none placeholder:text-text-muted"
                     />
                     {searchQuery && (
                         <Button
@@ -385,7 +385,7 @@ export function ProductsPageContent({
                     {/* ── Product Grid ── */}
                     <div className="flex-1">
                         {filtered.length === 0 ? (
-                            <div className="flex flex-col items-center justify-center py-20 text-center">
+                            <div className="flex flex-col items-center justify-center py-14 sm:py-20 text-center">
                                 <Search className="mb-4 h-12 w-12 text-text-muted/20" />
                                 <h3 className="text-[16px] font-bold text-foreground">No products found</h3>
                                 <p className="mt-3 max-w-sm text-[13px] leading-[1.75] text-text-muted">
@@ -405,8 +405,8 @@ export function ProductsPageContent({
                                 className={cn(
                                     "grid gap-x-5 gap-y-8",
                                     showFilters
-                                        ? "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
-                                        : "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                                        ? "grid-cols-2 sm:grid-cols-2 xl:grid-cols-3"
+                                        : "grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
                                 )}
                             >
                                 {/* Promo Banner */}
@@ -475,7 +475,7 @@ export function ProductsPageContent({
 
             {/* ─── Bottom CTA Band ─── */}
             <div className="border-t border-border-warm/40 bg-surface">
-                <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-6 px-6 py-14 text-center sm:px-8 lg:flex-row lg:px-12 lg:text-left">
+                <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-6 px-6 py-10 sm:py-14 text-center sm:px-8 lg:flex-row lg:px-12 lg:text-left">
                     <div>
                         <h2 className="heading-section text-foreground">
                             Need help choosing the right products?
@@ -507,7 +507,7 @@ function ProductCard({ product }: { product: ProductListItem }) {
             className="group flex flex-col"
         >
             {/* Product image */}
-            <div className="relative aspect-square overflow-hidden bg-surface">
+            <div className="relative aspect-[4/5] sm:aspect-square overflow-hidden bg-surface">
                 {product.image ? (
                     <Image
                         src={product.image}

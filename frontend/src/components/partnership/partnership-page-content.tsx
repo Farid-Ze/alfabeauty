@@ -81,7 +81,7 @@ export function PartnershipPageContent() {
     return (
         <main id="main-content" className="relative z-10 min-h-screen bg-background pt-[var(--header-height)]">
             {/* ─── §1: Hero ─── */}
-            <section className="bg-surface py-20 lg:py-28">
+            <section className="bg-surface py-14 sm:py-20 lg:py-28">
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <div className="mx-auto max-w-2xl text-center">
                         <p className="eyebrow">
@@ -105,12 +105,12 @@ export function PartnershipPageContent() {
             {/* ─── §2: Dual Benefits Cards ─── */}
             <FadeIn>
             <section
-                className="bg-background py-20 lg:py-28"
+                className="bg-background py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8">
                         {/* For International Principals */}
-                        <div className="border border-border-warm/60 p-8 transition-all duration-300 hover:shadow-sm lg:p-12">
+                        <div className="border border-border-warm/60 p-6 sm:p-8 transition-all duration-300 hover:shadow-sm lg:p-12">
                             <div className="flex items-center gap-3">
                                 <div className="flex h-10 w-10 items-center justify-center bg-foreground/5">
                                     <Globe2 className="h-5 w-5 text-foreground/50" />
@@ -139,7 +139,7 @@ export function PartnershipPageContent() {
                         </div>
 
                         {/* For Professional Salons & Barbershops */}
-                        <div className="border border-border-warm/60 p-8 transition-all duration-300 hover:shadow-sm lg:p-12">
+                        <div className="border border-border-warm/60 p-6 sm:p-8 transition-all duration-300 hover:shadow-sm lg:p-12">
                             <div className="flex items-center gap-3">
                                 <div className="flex h-10 w-10 items-center justify-center bg-foreground/5">
                                     <Store className="h-5 w-5 text-foreground/50" />
@@ -177,7 +177,7 @@ export function PartnershipPageContent() {
             {/* ─── §3: How It Works ─── */}
             <FadeIn>
             <section
-                className="bg-background py-20 lg:py-28"
+                className="bg-background py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <div className="text-center">
@@ -189,7 +189,7 @@ export function PartnershipPageContent() {
                         </h2>
                     </div>
 
-                    <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-3">
+                    <div className="mt-10 sm:mt-14 grid grid-cols-1 gap-6 sm:gap-8 sm:grid-cols-3">
                         {processSteps.map((step) => {
                             const Icon = step.icon;
                             return (
@@ -221,10 +221,10 @@ export function PartnershipPageContent() {
             <FadeIn>
             <section
                 id="become-partner"
-                className="bg-surface py-20 lg:py-28"
+                className="bg-surface py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
-                    <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-20">
+                    <div className="grid grid-cols-1 gap-8 sm:gap-12 lg:grid-cols-[1fr_1.5fr] lg:gap-20">
                         {/* Left: intro */}
                         <div>
                             <p className="eyebrow">
@@ -269,7 +269,7 @@ export function PartnershipPageContent() {
                         </div>
 
                         {/* Right: form */}
-                        <div className="border border-border-warm/60 bg-background p-8 lg:p-12">
+                        <div className="border border-border-warm/60 bg-background p-5 sm:p-8 lg:p-12">
                             <PartnershipForm />
                         </div>
                     </div>
@@ -280,7 +280,7 @@ export function PartnershipPageContent() {
             {/* ─── §5: Closing Statement ─── */}
             <FadeIn>
             <section
-                className="bg-foreground py-20 lg:py-28"
+                className="bg-foreground py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 text-center sm:px-8 lg:px-12">
                     <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/50">

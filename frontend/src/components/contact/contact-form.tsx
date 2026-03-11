@@ -219,6 +219,7 @@ export function ContactForm(): React.JSX.Element {
                     onChange={(e) =>
                         onChange("name", e.target.value)
                     }
+                    autoComplete="name"
                     className={fieldClass(errors.name)}
                 />
             </FormField>
@@ -236,6 +237,7 @@ export function ContactForm(): React.JSX.Element {
                         onChange={(e) =>
                             onChange("email", e.target.value)
                         }
+                        autoComplete="email"
                         className={fieldClass(errors.email)}
                     />
                 </FormField>
@@ -251,6 +253,8 @@ export function ContactForm(): React.JSX.Element {
                         onChange={(e) =>
                             onChange("phone", e.target.value)
                         }
+                        autoComplete="tel"
+                        inputMode="tel"
                         className={fieldClass(errors.phone)}
                     />
                 </FormField>

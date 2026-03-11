@@ -81,7 +81,7 @@ export function EventDetailContent({
                     {/* Left: Event image — sticky on desktop */}
                     <div className="relative">
                         <div className="lg:sticky lg:top-[88px] lg:self-start">
-                            <div className="relative flex aspect-square items-center justify-center border border-border-warm/60 bg-gradient-to-br from-foreground/[0.02] to-foreground/[0.06]">
+                            <div className="relative flex aspect-[4/3] sm:aspect-square items-center justify-center border border-border-warm/60 bg-gradient-to-br from-foreground/[0.02] to-foreground/[0.06]">
                                 <div className="text-center">
                                     <Star className="mx-auto h-14 w-14 text-foreground/10" />
                                     <p className="mt-4 text-[11px] font-bold uppercase tracking-[0.2em] text-text-muted">

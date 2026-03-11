@@ -121,7 +121,7 @@ export function AboutPageContent(): React.JSX.Element {
     return (
         <main id="main-content" className="relative z-10 min-h-screen bg-background pt-[var(--header-height)]">
             {/* ─── §1: Hero ─── */}
-            <section className="bg-surface py-20 lg:py-28">
+            <section className="bg-surface py-14 sm:py-20 lg:py-28">
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
                         <div className="flex flex-col justify-center">
@@ -162,7 +162,7 @@ export function AboutPageContent(): React.JSX.Element {
             {/* ─── §2: Stats Strip ─── */}
             <FadeIn>
             <section
-                className="border-y border-border-warm/60 bg-background py-14"
+                className="border-y border-border-warm/60 bg-background py-8 sm:py-14"
             >
                 <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-10 px-6 sm:grid-cols-3 sm:px-8 lg:px-12">
                     {stats.map((stat) => (
@@ -189,7 +189,7 @@ export function AboutPageContent(): React.JSX.Element {
             {/* ─── §3: Our Journey (Timeline) ─── */}
             <FadeIn>
             <section
-                className="bg-background py-20 lg:py-28"
+                className="bg-background py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <div className="mx-auto max-w-2xl text-center">
@@ -213,7 +213,7 @@ export function AboutPageContent(): React.JSX.Element {
                         {/* Vertical line — desktop only */}
                         <div className="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-border-warm/60 lg:block" />
 
-                        <div className="space-y-12 lg:space-y-0">
+                        <div className="space-y-8 sm:space-y-12 lg:space-y-0">
                             {journeyMilestones.map(
                                 (milestone, i) => {
                                     const isLeft = i % 2 === 0;
@@ -262,7 +262,7 @@ export function AboutPageContent(): React.JSX.Element {
             {/* ─── §4: Our Role — "More Than a Distributor" ─── */}
             <FadeIn>
             <section
-                className="bg-surface py-20 lg:py-28"
+                className="bg-surface py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <div className="mx-auto max-w-2xl text-center">
@@ -285,7 +285,7 @@ export function AboutPageContent(): React.JSX.Element {
                             return (
                                 <div
                                     key={pillar.title}
-                                    className="border border-border-warm/60 bg-background p-8 transition-all duration-300 hover:shadow-sm lg:p-10"
+                                    className="border border-border-warm/60 bg-background p-6 sm:p-8 transition-all duration-300 hover:shadow-sm lg:p-10"
                                 >
                                     <div className="flex h-11 w-11 items-center justify-center bg-foreground/5">
                                         <Icon className="h-5 w-5 text-foreground/60" />
@@ -308,12 +308,12 @@ export function AboutPageContent(): React.JSX.Element {
             {/* ─── §5: Mission & Vision ─── */}
             <FadeIn>
             <section
-                className="bg-background py-20 lg:py-28"
+                className="bg-background py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
                         {/* Mission */}
-                        <div className="border border-border-warm/60 p-8 transition-all duration-300 hover:shadow-sm lg:p-12">
+                        <div className="border border-border-warm/60 p-6 sm:p-8 transition-all duration-300 hover:shadow-sm lg:p-12">
                             <div className="flex items-center gap-3">
                                 <div className="flex h-10 w-10 items-center justify-center bg-foreground/5">
                                     <Target className="h-5 w-5 text-foreground/60" />
@@ -333,7 +333,7 @@ export function AboutPageContent(): React.JSX.Element {
                         </div>
 
                         {/* Vision */}
-                        <div className="border border-border-warm/60 p-8 transition-all duration-300 hover:shadow-sm lg:p-12">
+                        <div className="border border-border-warm/60 p-6 sm:p-8 transition-all duration-300 hover:shadow-sm lg:p-12">
                             <div className="flex items-center gap-3">
                                 <div className="flex h-10 w-10 items-center justify-center bg-foreground/5">
                                     <Award className="h-5 w-5 text-foreground/60" />
@@ -360,7 +360,7 @@ export function AboutPageContent(): React.JSX.Element {
             {/* ─── §6: Brand Portfolio ─── */}
             <FadeIn>
             <section
-                className="bg-surface py-20 lg:py-28"
+                className="bg-surface py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <div className="text-center">
@@ -384,7 +384,7 @@ export function AboutPageContent(): React.JSX.Element {
                                 className="group border border-border-warm/60 bg-background transition-all duration-300 hover:shadow-sm"
                             >
                                 {/* Brand logo */}
-                                <div className="flex aspect-[3/1] items-center justify-center bg-surface-elevated p-6">
+                                <div className="flex aspect-[5/2] sm:aspect-[3/1] items-center justify-center bg-surface-elevated p-6">
                                     <Image
                                         src={brand.logo}
                                         alt={`${brand.name} logo`}
@@ -429,7 +429,7 @@ export function AboutPageContent(): React.JSX.Element {
             {/* ─── §7: Meet the Team ─── */}
             <FadeIn>
             <section
-                className="bg-background py-20 lg:py-28"
+                className="bg-background py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 sm:px-8 lg:px-12">
                     <div className="mx-auto max-w-2xl text-center">
@@ -446,7 +446,7 @@ export function AboutPageContent(): React.JSX.Element {
                         </p>
                     </div>
 
-                    <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                    <div className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
                         {teamMembers.map((member) => (
                             <div
                                 key={member.name}
@@ -473,7 +473,7 @@ export function AboutPageContent(): React.JSX.Element {
             {/* ─── §8: CTA Band — "Let's Work Together" ─── */}
             <FadeIn>
             <section
-                className="bg-foreground py-20 lg:py-28"
+                className="bg-foreground py-14 sm:py-20 lg:py-28"
             >
                 <div className="mx-auto max-w-[1400px] px-6 text-center sm:px-8 lg:px-12">
                     <p className="text-[11px] font-bold uppercase tracking-[0.25em] text-white/50">
