@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion, type HTMLMotionProps } from "framer-motion";
+import { motion, useReducedMotion, type HTMLMotionProps } from "framer-motion";
 import { smoothEase, cinematicEase } from "@/lib/motion";
 
 /* ─────────────────────────────────────────────────────────────────────
@@ -72,6 +72,7 @@ export function FadeIn({
   };
 
   const off = directionOffset[direction];
+  const prefersReducedMotion = useReducedMotion();
   const staggerDelay = stagger != null ? stagger * 0.08 : 0;
   const totalDelay = delay + staggerDelay;
 
@@ -109,8 +110,8 @@ export function FadeIn({
       whileInView={animateState}
       viewport={viewportConfig}
       transition={{
-        duration: duration ?? baseDuration,
-        delay: totalDelay,
+        duration: prefersReducedMotion ? 0 : (duration ?? baseDuration),
+        delay: prefersReducedMotion ? 0 : totalDelay,
         ease: dramatic ? cinematicEase : smoothEase,
       }}
       className={className}

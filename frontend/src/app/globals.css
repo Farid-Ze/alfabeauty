@@ -326,6 +326,21 @@
     filter: blur(0);
   }
 
+  /* ── Mobile perf: disable blur filter, shorter transitions ───── */
+  @media (max-width: 639px) {
+    .reveal-text-v3.reveal-blur .reveal-word,
+    .reveal-text-v3.reveal-blur.is-visible .reveal-word {
+      filter: none;
+    }
+    .reveal-text-v3 .reveal-word {
+      --stagger-ms: 20ms;
+      transition-duration: 0.45s;
+    }
+    .reveal-text .reveal-line > span {
+      transition-duration: 0.55s;
+    }
+  }
+
   /* ─────────────────────────────────────────────────────────────────
    * §4  Link Underline Animation — Yucca pattern
    *
