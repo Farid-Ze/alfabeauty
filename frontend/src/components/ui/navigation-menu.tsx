@@ -54,7 +54,7 @@ const VIEWPORT_BASE = [
 ].join(" ")
 
 const VIEWPORT_FULL_WIDTH = [
-  "mt-0 w-screen rounded-none border-0 bg-surface text-foreground",
+  "mt-0 w-screen rounded-none border-0 border-b border-border-warm/60 bg-background text-foreground",
   "will-change-[opacity,transform] translate-z-0",
   // Simple hardware-accelerated fade and slight slide
   "data-[state=open]:animate-in data-[state=closed]:animate-out",
@@ -219,12 +219,8 @@ function NavigationMenuLink({
       data-slot="navigation-menu-link"
       className={cn(
         "flex flex-col gap-1 rounded-sm p-2 text-sm outline-none",
-        "transition-colors duration-[600ms] ease-[var(--ease)]",
-        "hover:bg-accent hover:text-accent-foreground",
-        "focus:bg-accent focus:text-accent-foreground",
+        "transition-colors duration-300 ease-[var(--ease)]",
         "focus-visible:ring-ring/50 focus-visible:ring-[3px] focus-visible:outline-1",
-        "data-[active=true]:bg-accent/50 data-[active=true]:text-accent-foreground",
-        "data-[active=true]:hover:bg-accent data-[active=true]:focus:bg-accent",
         "[&_svg:not([class*='text-'])]:text-muted-foreground",
         "[&_svg:not([class*='size-'])]:size-4",
         className

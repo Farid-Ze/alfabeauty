@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, Calendar } from "lucide-react";
 import { NavigationMenuLink } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
 
 const EDUCATION_ITEMS = [
     {
@@ -32,22 +31,22 @@ const EDUCATION_ITEMS = [
     },
 ];
 
-export function EducationPanel({ contentEntrance }: { contentEntrance: string }) {
+export function EducationPanel() {
     return (
-        <div className={cn("mx-auto grid max-w-[1400px] grid-cols-[1fr_auto] gap-10 px-8 py-10 lg:px-12", contentEntrance)}>
+        <div className="mx-auto grid max-w-[1400px] grid-cols-[1fr_auto] gap-10 px-8 py-10 lg:px-12">
             {/* Left: Education items */}
             <div className="grid grid-cols-2 gap-x-8 gap-y-5">
                 {EDUCATION_ITEMS.map((item) => (
                     <NavigationMenuLink key={item.title} asChild>
                         <Link
                             href={item.href}
-                            className="group flex gap-4 rounded-none p-3 transition-colors duration-300 hover:bg-muted/50"
+                            className="group flex gap-4 p-3"
                         >
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-muted transition-colors duration-300 group-hover:bg-brand-crimson/10">
-                                <item.icon className="h-4.5 w-4.5 text-muted-foreground transition-colors duration-300 group-hover:text-brand-crimson" />
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-muted">
+                                <item.icon className="h-4.5 w-4.5 text-muted-foreground" />
                             </div>
                             <div>
-                                <h4 className="text-[13px] font-bold leading-snug">{item.title}</h4>
+                                <h4 className="text-[13px] font-bold leading-snug group-hover:underline underline-offset-4 decoration-foreground/30">{item.title}</h4>
                                 <p className="mt-1 text-[12px] leading-relaxed text-muted-foreground/70 transition-colors duration-300 group-hover:text-muted-foreground">
                                     {item.description}
                                 </p>
@@ -76,7 +75,7 @@ export function EducationPanel({ contentEntrance }: { contentEntrance: string })
                     <NavigationMenuLink asChild>
                         <Link
                             href="/education"
-                            className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/60 transition-colors duration-300 hover:text-foreground"
+                            className="inline-flex w-full items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/60 transition-colors duration-300 hover:text-foreground"
                         >
                             Explore Programs
                             <ArrowRight className="h-3.5 w-3.5" />

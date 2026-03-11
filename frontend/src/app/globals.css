@@ -132,27 +132,7 @@
   }
 }
 
-/* Mega-menu panel content entrance — multi-stage with blur + scale */
-@keyframes mega-content-in {
-  from {
-    opacity: 0;
-    transform: translateY(14px) scale(0.98) translateZ(0);
-    filter: blur(4px);
-    will-change: opacity, transform, filter;
-  }
-  40% {
-    opacity: 0.7;
-    transform: translateY(4px) scale(0.995) translateZ(0);
-    filter: blur(1px);
-    will-change: opacity, transform, filter;
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1) translateZ(0);
-    filter: blur(0);
-    will-change: auto;
-  }
-}
+
 
 /* Shimmer for loading / preloader accents */
 @keyframes shimmer {
@@ -704,18 +684,7 @@
     animation: counter-pulse-glow 0.6s ease-out;
   }
 
-  /* Mega-menu panel image hover zoom */
-  .menu-img-zoom {
-    overflow: hidden;
-  }
-  .menu-img-zoom img {
-    transition: transform 1.2s var(--ease), filter 1.2s var(--ease);
-  }
-  .menu-img-zoom:hover img,
-  .group:hover .menu-img-zoom img {
-    transform: scale(1.06);
-    filter: brightness(1.05);
-  }
+
 
   /* Snap scroll for carousels */
   .snap-x-mandatory {

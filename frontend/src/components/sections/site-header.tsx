@@ -27,14 +27,7 @@ import { EducationPanel } from "./nav/education-panel";
 import { PartnershipPanel } from "./nav/partnership-panel";
 import { MobileMenu } from "./nav/mobile-menu";
 
-/* ─────────────────────────────────────────────────────────────────────
- * COMPONENT: SiteHeader V5
- *
- * V6 Upgrades over V5:
- *   - Lenis stop/start on mega-menu & mobile menu open (GAP-SCROLL-01)
- *   - Search icon placeholder in right actions
- *   - Deeper cinematic overlay
- * ───────────────────────────────────────────────────────────────────── */
+/* SiteHeader — Fixed nav with mega-menu panels, scroll-hide, Lenis control */
 
 export function SiteHeader(): React.JSX.Element {
     const pathname = usePathname();
@@ -44,7 +37,6 @@ export function SiteHeader(): React.JSX.Element {
     const [menuOpen, setMenuOpen] = React.useState(false);
     const [mobileOpen, setMobileOpen] = React.useState(false);
     const [headerHovered, setHeaderHovered] = React.useState(false);
-    const [justOpened, setJustOpened] = React.useState(false);
     const [menuClosing, setMenuClosing] = React.useState(false);
     const menuWasOpen = React.useRef(false);
     const { scrollY } = useScroll();
@@ -62,15 +54,6 @@ export function SiteHeader(): React.JSX.Element {
             lastScrollY.current = latest;
         });
     });
-
-    React.useEffect(() => {
-        if (menuOpen) {
-            setJustOpened(true);
-            const timer = setTimeout(() => setJustOpened(false), 900);
-            return () => clearTimeout(timer);
-        }
-        setJustOpened(false);
-    }, [menuOpen]);
 
     React.useEffect(() => {
         if (menuOpen) {
@@ -95,8 +78,6 @@ export function SiteHeader(): React.JSX.Element {
     const isSolid = solid || scrolled || menuOpen || headerHovered || menuClosing;
     const isHidden = scrollDirection === "down" && scrolled && !menuOpen && !mobileOpen && !menuClosing;
     const hasElevation = scrolled && !menuOpen;
-    // Removed heavy CSS keyframes (mega-content-in) — relying exclusively on Framer Motion internal staggers for 60FPS
-    const contentEntrance = "";
 
     const indicatorBar = React.useMemo(() => [
         "before:content-[''] before:absolute before:bottom-[-1px] before:left-[1.6rem] before:right-[1.6rem]",
@@ -207,7 +188,7 @@ export function SiteHeader(): React.JSX.Element {
                                 Products
                             </NavigationMenuTrigger>
                             <NavigationMenuContent className="p-0">
-                                <ProductsPanel contentEntrance={contentEntrance} />
+                                <ProductsPanel />
                             </NavigationMenuContent>
                         </NavigationMenuItem>
 
@@ -216,7 +197,7 @@ export function SiteHeader(): React.JSX.Element {
                                 Brands
                             </NavigationMenuTrigger>
                             <NavigationMenuContent className="p-0">
-                                <BrandsPanel contentEntrance={contentEntrance} />
+                                <BrandsPanel />
                             </NavigationMenuContent>
                         </NavigationMenuItem>
 
@@ -225,7 +206,7 @@ export function SiteHeader(): React.JSX.Element {
                                 Education
                             </NavigationMenuTrigger>
                             <NavigationMenuContent className="p-0">
-                                <EducationPanel contentEntrance={contentEntrance} />
+                                <EducationPanel />
                             </NavigationMenuContent>
                         </NavigationMenuItem>
 
@@ -234,7 +215,7 @@ export function SiteHeader(): React.JSX.Element {
                                 Partnership
                             </NavigationMenuTrigger>
                             <NavigationMenuContent className="p-0">
-                                <PartnershipPanel contentEntrance={contentEntrance} />
+                                <PartnershipPanel />
                             </NavigationMenuContent>
                         </NavigationMenuItem>
 

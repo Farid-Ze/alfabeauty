@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { NavigationMenuLink } from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
 import { PRODUCT_CATEGORIES } from "@/lib/config";
 
 const CATEGORY_IMAGES: Record<string, string> = {
@@ -19,11 +18,11 @@ const CATEGORY_IMAGES: Record<string, string> = {
 
 const DEFAULT_IMAGE = "/images/products/gamma-plus/XCELL CLIPPER/hero.webp";
 
-export function ProductsPanel({ contentEntrance }: { contentEntrance: string }) {
+export function ProductsPanel() {
     const [hoveredImage, setHoveredImage] = React.useState(DEFAULT_IMAGE);
 
     return (
-        <div className={cn("mx-auto grid max-w-[1400px] grid-cols-[1.1fr_1fr] gap-0 px-8 py-10 lg:px-12", contentEntrance)}>
+        <div className="mx-auto grid max-w-[1400px] grid-cols-[1.1fr_1fr] gap-0 px-8 py-10 lg:px-12">
             {/* Left: Featured product showcase */}
             <div className="relative flex flex-col justify-between overflow-hidden bg-charcoal pr-10 p-8">
                 <div className="absolute inset-0">
@@ -47,17 +46,16 @@ export function ProductsPanel({ contentEntrance }: { contentEntrance: string }) 
                         Explore Our<br />Product Collection
                     </h3>
                     <p className="mt-3 max-w-[320px] text-[13px] leading-relaxed text-white/50">
-                        Curated professional-grade products from the world's most trusted salon brands.
+                        Curated professional-grade products from the world&apos;s most trusted salon brands.
                     </p>
                 </div>
 
-                <div className="relative z-10 mt-6 h-px bg-white/15" />
-
-                <div className="relative z-10 mt-4">
+                <div className="relative z-10 mt-auto pt-6">
+                    <div className="mb-4 h-px bg-white/15" />
                     <NavigationMenuLink asChild>
                         <Link
                             href="/products"
-                            className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 transition-colors duration-300 hover:text-white"
+                            className="inline-flex w-full items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 transition-colors duration-300 hover:text-white"
                         >
                             View All Products
                             <ArrowRight className="h-3.5 w-3.5" />
@@ -72,7 +70,7 @@ export function ProductsPanel({ contentEntrance }: { contentEntrance: string }) 
                     <NavigationMenuLink key={cat} asChild>
                         <Link
                             href={`/products?category=${cat.toLowerCase().replace(/\s+&?\s*/g, "-")}`}
-                            className="group relative flex min-h-[120px] flex-col justify-end overflow-hidden bg-background p-5 transition-colors duration-300 hover:bg-muted/50"
+                            className="group relative flex min-h-[120px] flex-col justify-end overflow-hidden bg-background p-5"
                             onMouseEnter={() => setHoveredImage(CATEGORY_IMAGES[cat] ?? DEFAULT_IMAGE)}
                             onMouseLeave={() => setHoveredImage(DEFAULT_IMAGE)}
                         >
@@ -85,7 +83,7 @@ export function ProductsPanel({ contentEntrance }: { contentEntrance: string }) 
                                 aria-hidden="true"
                             />
 
-                            <h4 className="text-[13px] font-bold leading-snug">{cat}</h4>
+                            <h4 className="text-[13px] font-bold leading-snug group-hover:underline underline-offset-4 decoration-foreground/30">{cat}</h4>
                             <span className="mt-1.5 inline-flex items-center gap-1 text-[11px] text-muted-foreground/60 transition-colors duration-300 group-hover:text-foreground">
                                 Browse
                                 <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
