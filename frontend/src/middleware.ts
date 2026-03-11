@@ -36,7 +36,6 @@ export function middleware(request: NextRequest): NextResponse {
     `base-uri 'none'`,
     `object-src 'none'`,
     `form-action 'self'`,
-    `upgrade-insecure-requests`,
   ].join("; ");
 
   const requestHeaders = new Headers(request.headers);
