@@ -3,85 +3,133 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, Calendar } from "lucide-react";
 import { NavigationMenuLink } from "@/components/ui/navigation-menu";
+import { getFeaturedEvent } from "@/components/education/education-data";
 
 const EDUCATION_ITEMS = [
     {
         title: "Technical Training",
-        description: "Hands-on workshops with industry professionals covering cutting, colouring, and styling techniques.",
+        description: "Cutting, colouring, and styling workshops with industry professionals.",
         href: "/education",
         icon: BookOpen,
     },
     {
         title: "Product Knowledge",
-        description: "Deep-dive sessions on product formulations, application methods, and salon consultation skills.",
+        description: "Deep-dive sessions on formulations and application methods.",
         href: "/education",
         icon: BookOpen,
     },
     {
         title: "Business Development",
-        description: "Strategic workshops on salon management, marketing, and client retention strategies.",
+        description: "Salon management, marketing, and client retention strategies.",
         href: "/education",
         icon: BookOpen,
     },
     {
         title: "Events & Seminars",
-        description: "Industry events, brand launches, and networking opportunities for beauty professionals.",
+        description: "Brand launches, live demos, and networking opportunities.",
         href: "/education/events",
         icon: Calendar,
     },
 ];
 
 export function EducationPanel() {
-    return (
-        <div className="mx-auto grid min-h-[340px] max-w-[1400px] grid-cols-[1fr_auto] gap-10 px-8 py-10 lg:px-12">
-            {/* Left: Education items */}
-            <div className="grid grid-cols-2 gap-x-8 gap-y-5">
-                {EDUCATION_ITEMS.map((item) => (
-                    <NavigationMenuLink key={item.title} asChild>
-                        <Link
-                            href={item.href}
-                            className="group flex gap-4 p-3"
-                        >
-                            <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-muted">
-                                <item.icon className="h-4.5 w-4.5 text-muted-foreground" />
-                            </div>
-                            <div>
-                                <h4 className="text-[13px] font-bold leading-snug group-hover:underline underline-offset-4 decoration-foreground/30">{item.title}</h4>
-                                <p className="mt-1 text-[12px] leading-relaxed text-muted-foreground/70 transition-colors duration-300 group-hover:text-muted-foreground">
-                                    {item.description}
-                                </p>
-                            </div>
-                        </Link>
-                    </NavigationMenuLink>
-                ))}
-            </div>
+    const featured = getFeaturedEvent();
 
-            {/* Right: CTA column */}
-            <div className="flex w-[220px] flex-col justify-between border-l border-border-warm/30 pl-8">
-                <div>
-                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-muted-foreground/50">
-                        Alfa Beauty Academy
+    return (
+        <div className="mx-auto grid min-h-[440px] max-w-[1400px] grid-cols-[1.1fr_1fr] gap-0 px-8 py-10 lg:px-12">
+            {/* Left: Featured Event Showcase */}
+            <div className="relative flex flex-col justify-between overflow-hidden bg-charcoal p-8 pr-10">
+                <div className="absolute inset-0 bg-gradient-to-br from-brand-crimson/15 via-charcoal to-charcoal" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+
+                <div className="relative z-10">
+                    <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+                        {featured ? "Featured Event" : "Alfa Beauty Academy"}
                     </p>
-                    <h4 className="mt-2 text-[15px] font-bold leading-snug">
-                        Elevate Your Craft
-                    </h4>
-                    <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground/60">
-                        Professional education programs designed for growth.
-                    </p>
+
+                    {featured ? (
+                        <>
+                            <h3 className="mt-2 text-[1.5rem] font-bold leading-tight text-white">
+                                {featured.title}
+                            </h3>
+                            <div className="mt-2 flex items-center gap-2 text-[11px] text-white/40">
+                                <Calendar className="h-3 w-3" />
+                                <span>
+                                    {new Date(featured.date).toLocaleDateString("en-GB", {
+                                        day: "numeric",
+                                        month: "short",
+                                        year: "numeric",
+                                    })}
+                                    {featured.endDate && (
+                                        <>
+                                            {" – "}
+                                            {new Date(featured.endDate).toLocaleDateString("en-GB", {
+                                                day: "numeric",
+                                                month: "short",
+                                            })}
+                                        </>
+                                    )}
+                                </span>
+                                <span>·</span>
+                                <span>{featured.location}</span>
+                            </div>
+                            <p className="mt-3 max-w-[340px] text-[13px] leading-relaxed text-white/50">
+                                {featured.description}
+                            </p>
+                        </>
+                    ) : (
+                        <>
+                            <h3 className="mt-2 text-[1.5rem] font-bold leading-tight text-white">
+                                Elevate Your<br />Professional Craft
+                            </h3>
+                            <p className="mt-3 max-w-[340px] text-[13px] leading-relaxed text-white/50">
+                                Professional education programs designed for salon and barber industry growth.
+                            </p>
+                        </>
+                    )}
                 </div>
 
-                <div className="mt-6">
-                    <div className="mb-4 h-px bg-border-warm/40" />
+                <div className="relative z-10 mt-auto pt-6">
+                    <div className="mb-4 h-px bg-white/15" />
                     <NavigationMenuLink asChild>
                         <Link
-                            href="/education"
-                            className="inline-flex w-full items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em] text-foreground/60 transition-colors duration-300 hover:text-foreground"
+                            href={featured ? `/education/events/${featured.id}` : "/education"}
+                            className="inline-flex w-full items-center justify-between text-[11px] font-bold uppercase tracking-[0.2em] text-white/60 transition-colors duration-300 hover:text-white"
                         >
-                            Explore Programs
+                            {featured ? "View Event Details" : "Explore Programs"}
                             <ArrowRight className="h-3.5 w-3.5" />
                         </Link>
                     </NavigationMenuLink>
                 </div>
+            </div>
+
+            {/* Right: Education Programs Grid */}
+            <div className="grid grid-cols-2 gap-px bg-border-warm/20">
+                {EDUCATION_ITEMS.map((item) => (
+                    <NavigationMenuLink key={item.title} asChild>
+                        <Link
+                            href={item.href}
+                            className="group relative flex flex-col justify-between overflow-hidden bg-background p-6"
+                        >
+                            <div>
+                                <div className="flex h-10 w-10 items-center justify-center bg-muted">
+                                    <item.icon className="h-4.5 w-4.5 text-muted-foreground" />
+                                </div>
+                                <h4 className="mt-3 text-[13px] font-bold leading-snug group-hover:underline underline-offset-4 decoration-foreground/30">
+                                    {item.title}
+                                </h4>
+                                <p className="mt-1.5 text-[12px] leading-relaxed text-muted-foreground/60 transition-colors duration-300 group-hover:text-muted-foreground">
+                                    {item.description}
+                                </p>
+                            </div>
+                            <span className="mt-3 inline-flex items-center gap-1 text-[11px] text-muted-foreground/60 transition-colors duration-300 group-hover:text-foreground">
+                                Explore
+                                <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-0.5" />
+                            </span>
+                            <div className="absolute bottom-0 left-0 h-0.5 w-0 bg-brand-crimson transition-[width] duration-500 group-hover:w-full" />
+                        </Link>
+                    </NavigationMenuLink>
+                ))}
             </div>
         </div>
     );

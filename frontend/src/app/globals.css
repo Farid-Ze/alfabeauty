@@ -4,7 +4,7 @@
 
 /* ─── Alfa Beauty Cosmetica — Design Tokens ─── */
 
-@theme inline {
+@theme {
   /* Fluid typography */
   --fluid-xs: clamp(0.625rem, 0.8vw, 0.75rem);
 
@@ -134,7 +134,15 @@
   }
 }
 
+@layer components {
+  .eyebrow {
+    @apply uppercase tracking-[0.2em] text-[11px] font-semibold text-muted-foreground;
+  }
 
+  .body-prose {
+    @apply text-[14px] md:text-[15px] font-normal leading-[1.85] text-charcoal;
+  }
+}
 
 /* Shimmer for loading / preloader accents */
 @keyframes shimmer {
@@ -212,10 +220,6 @@
 
   /* Legacy aliases (existing classes — now use clamp internally) */
 
-  .eyebrow {
-    @apply uppercase tracking-[0.2em] text-[11px] font-semibold text-muted-foreground;
-  }
-
   .heading-display {
     font-size: clamp(2.25rem, 5vw, 3.75rem);
     line-height: 1.1;
@@ -228,10 +232,6 @@
     line-height: 1.15;
     letter-spacing: -0.015em;
     font-weight: 700;
-  }
-
-  .body-prose {
-    @apply text-[14px] md:text-[15px] font-normal leading-[1.85] text-charcoal;
   }
 
   /* ─────────────────────────────────────────────────────────────────

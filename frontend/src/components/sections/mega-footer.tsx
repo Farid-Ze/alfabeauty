@@ -231,7 +231,7 @@ export function MegaFooter(): React.JSX.Element {
             >
               {/* Left: Copyright + Social icons */}
               <motion.div className="flex items-center gap-5" variants={listItemFadeIn}>
-                <p className="text-xs text-charcoal/70">
+                <p className="text-xs text-charcoal">
                   © {currentYear} {SITE_NAME}. All Rights Reserved
                 </p>
 
@@ -272,7 +272,7 @@ export function MegaFooter(): React.JSX.Element {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-xs text-charcoal/70 transition-colors duration-300 hover:text-foreground hover:underline underline-offset-4"
+                    className="text-xs text-charcoal transition-colors duration-300 hover:text-foreground hover:underline underline-offset-4"
                   >
                     {link.label}
                   </Link>

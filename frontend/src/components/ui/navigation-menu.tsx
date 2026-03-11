@@ -55,7 +55,8 @@ const VIEWPORT_BASE = [
 
 const VIEWPORT_FULL_WIDTH = [
   "mt-0 w-screen rounded-none border-0 border-b border-border-warm/60 bg-background text-foreground",
-  "will-change-[opacity,transform] translate-z-0",
+  "will-change-[opacity,transform,height] translate-z-0",
+  "transition-[height] duration-300 ease-[var(--ease-menu-open)]",
   // Simple hardware-accelerated fade and slight slide
   "data-[state=open]:animate-in data-[state=closed]:animate-out",
   "data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0",
