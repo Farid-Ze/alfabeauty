@@ -95,7 +95,8 @@ export function SiteHeader(): React.JSX.Element {
     const isSolid = solid || scrolled || menuOpen || headerHovered || menuClosing;
     const isHidden = scrollDirection === "down" && scrolled && !menuOpen && !mobileOpen && !menuClosing;
     const hasElevation = scrolled && !menuOpen;
-    const contentEntrance = justOpened ? "[animation:mega-content-in_0.55s_var(--ease-menu-open)_0.14s_both]" : "";
+    // Removed heavy CSS keyframes (mega-content-in) — relying exclusively on Framer Motion internal staggers for 60FPS
+    const contentEntrance = "";
 
     const indicatorBar = React.useMemo(() => [
         "before:content-[''] before:absolute before:bottom-[-1px] before:left-[1.6rem] before:right-[1.6rem]",
@@ -146,7 +147,7 @@ export function SiteHeader(): React.JSX.Element {
                     aria-hidden="true"
                     style={{ willChange: "opacity", transform: "translateZ(0)" }}
                 >
-                    <div className="absolute inset-0 bg-foreground/60 backdrop-blur-[8px]" />
+                    <div className="absolute inset-0 bg-foreground/70 backdrop-blur-sm" />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/10" />
                 </motion.div>
             )}

@@ -602,15 +602,15 @@ export const splitTextItem: Variants = {
 
 export const megaMenuCardStagger: Variants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.08, delayChildren: 0.06 } },
+  visible: { transition: { staggerChildren: 0.04, delayChildren: 0 } },
 };
 
 export const megaMenuCardBgReveal: Variants = {
-  hidden: { clipPath: "inset(0% 0% 100% 0%)", opacity: 0 },
+  hidden: { opacity: 0, scale: 0.98 },
   visible: {
-    clipPath: "inset(0% 0% 0% 0%)",
     opacity: 1,
-    transition: { duration: 0.6, ease: cinematicEase },
+    scale: 1,
+    transition: { duration: 0.5, ease: smoothEase },
   },
 };
 

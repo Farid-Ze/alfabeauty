@@ -55,17 +55,12 @@ const VIEWPORT_BASE = [
 
 const VIEWPORT_FULL_WIDTH = [
   "mt-0 w-screen rounded-none border-0 bg-surface text-foreground",
-  "will-change-[clip-path]",
-  // Default state: clipped above (hidden)
-  "[clip-path:inset(0_0_100%_0)]",
-  // Yucca: only transition clip-path, height changes are instant
-  "transition-[clip-path] ease-[var(--ease-menu-close)]",
-  // Close transition: 500ms
-  "[transition-duration:500ms]",
-  // Open: reveal downward via clipPath
-  "data-[state=open]:[clip-path:inset(0_0_0%_0)]",
-  "data-[state=open]:[transition-duration:800ms]",
-  "data-[state=open]:ease-[var(--ease-menu-open)]",
+  "will-change-[opacity,transform] translate-z-0",
+  // Simple hardware-accelerated fade and slight slide
+  "data-[state=open]:animate-in data-[state=closed]:animate-out",
+  "data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0",
+  "data-[state=open]:slide-in-from-top-2 data-[state=closed]:slide-out-to-top-2",
+  "duration-400 ease-[var(--ease-menu-open)]",
 ].join(" ")
 
 const VIEWPORT_DROPDOWN = [
