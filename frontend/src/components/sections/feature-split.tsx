@@ -150,7 +150,7 @@ export function FeatureSplit({ reverse = false }: FeatureSplitProps): React.JSX.
                                     href={NAV_LINKS.education}
                                     fillClass="bg-foreground"
                                     fillTextClass="text-white"
-                                    className="bg-surface-elevated text-foreground border border-border-warm hover:bg-surface-elevated"
+                                    className="bg-surface-elevated text-foreground border border-border-warm"
                                 >
                                     Explore Education
                                     <ArrowRight className="h-4 w-4" />

@@ -47,9 +47,8 @@ function PartnerCard({ number, eyebrow, title, items, accent = "crimson" }: Part
     return (
         <motion.div
             variants={cardFadeScale}
-            className="group relative h-full overflow-hidden border border-border-warm bg-surface-elevated p-8 transition-[border-color,box-shadow,transform] duration-[600ms] ease-[var(--ease)] hover:border-charcoal/30 hover:shadow-warm-lg hover:-translate-y-3 lg:p-12"
+            className="group relative h-full overflow-hidden border border-border-warm/60 bg-surface-elevated p-8 transition-all duration-300 hover:shadow-sm lg:p-12"
         >
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-surface/40 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
             <div className="relative z-10">
                 {/* Numbered badge */}
@@ -156,7 +155,7 @@ export function PartnershipSection(): React.JSX.Element {
                             href={NAV_LINKS.partnership}
                             fillClass="bg-white"
                             fillTextClass="text-brand-crimson"
-                            className="bg-brand-crimson text-white hover:bg-brand-crimson"
+                            className="bg-brand-crimson text-white"
                         >
                             Become a Partner
                             <ArrowRight className="ml-2 h-4 w-4" />
@@ -166,7 +165,7 @@ export function PartnershipSection(): React.JSX.Element {
                             location="partnership_section"
                             variant="outline"
                             size="lg"
-                            className="border-border-warm px-8 py-6 text-[11px] font-bold uppercase tracking-[0.15em] hover:bg-surface-elevated"
+                            className="border-border-warm px-8 py-6 text-[11px] font-bold uppercase tracking-[0.15em] transition-colors duration-300"
                         >
                             Consult via WhatsApp
                         </WhatsAppCTA>

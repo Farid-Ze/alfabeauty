@@ -66,7 +66,7 @@ export function CertificationBadges() {
                         <motion.div
                             key={cert.label}
                             variants={cardFadeScale}
-                            className="group flex flex-col items-center gap-3 bg-surface p-6 text-center transition-all duration-500 hover:bg-surface-elevated"
+                            className="group flex flex-col items-center gap-3 bg-surface p-6 text-center transition-all duration-300 hover:shadow-sm"
                         >
                             <span className="text-2xl" aria-hidden="true">{cert.icon}</span>
                             <div>

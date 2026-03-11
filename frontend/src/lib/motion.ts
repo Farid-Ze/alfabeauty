@@ -429,23 +429,7 @@ export const numberedIndexReveal: Variants = {
   },
 };
 
-/* ─────────────────────────────────────────────────────────────────────
- * §18  Enhanced mega-menu — item-level stagger with depth
- * ───────────────────────────────────────────────────────────────────── */
-
-export const megaMenuStagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.04, delayChildren: 0.06 } },
-};
-
-export const megaMenuItemReveal: Variants = {
-  hidden: { opacity: 0, y: 8 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.4, ease: smoothEase },
-  },
-};
+/* §18, §27, §30 removed: megaMenu* and pillarCard* variants (replaced by CSS transitions) */
 
 /* ─────────────────────────────────────────────────────────────────────
  * §19  Hero char-level — character stagger for display headlines
@@ -516,19 +500,7 @@ export const kenBurnsVariant: Variants = {
   },
 };
 
-/* ─────────────────────────────────────────────────────────────────────
- * §23  Carousel card depth — enhanced drag/swipe feedback
- * ───────────────────────────────────────────────────────────────────── */
-
-export const carouselCardHover = {
-  rest: { y: 0, scale: 1, filter: "brightness(1)" },
-  hover: {
-    y: -8,
-    scale: 1.015,
-    filter: "brightness(1.02)",
-    transition: { duration: 0.5, ease: smoothEase },
-  },
-} satisfies Record<string, object>;
+/* §23 removed: carouselCardHover (replaced by CSS transitions) */
 
 /* ─────────────────────────────────────────────────────────────────────
  * §24  Glassmorphism depth — enhanced frosted-glass reveals
@@ -589,74 +561,7 @@ export const splitTextItem: Variants = {
   },
 };
 
-/* ─────────────────────────────────────────────────────────────────────
- * §27  Mega-menu 5-phase card timeline (Yucca createCardTl pattern)
- *
- * Reproduces Yucca's per-card orchestrated timeline:
- *   Phase 1: Background clipPath reveal
- *   Phase 2: Media image scale 1.4→1
- *   Phase 3: Text lines yPercent stagger
- *   Phase 4: Border scaleX 0→1
- *   Phase 5: Link CTA slide up
- * ───────────────────────────────────────────────────────────────────── */
-
-export const megaMenuCardStagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.04, delayChildren: 0 } },
-};
-
-export const megaMenuCardBgReveal: Variants = {
-  hidden: { opacity: 0, scale: 0.98 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.5, ease: smoothEase },
-  },
-};
-
-export const megaMenuCardMediaScale: Variants = {
-  hidden: { scale: 1.35, opacity: 0 },
-  visible: {
-    scale: 1,
-    opacity: 1,
-    transition: { duration: 0.8, ease: smoothEase, delay: 0.1 },
-  },
-};
-
-export const megaMenuCardTextLine: Variants = {
-  hidden: { y: "100%", opacity: 0 },
-  visible: {
-    y: "0%",
-    opacity: 1,
-    transition: { duration: 0.5, ease: smoothEase },
-  },
-};
-
-export const megaMenuCardTextStagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.04, delayChildren: 0.15 } },
-};
-
-export const megaMenuCardBorderGrow: Variants = {
-  hidden: { scaleX: 0, opacity: 0 },
-  visible: {
-    scaleX: 1,
-    opacity: 1,
-    transition: { duration: 0.5, ease: smoothEase, delay: 0.25 },
-  },
-};
-
-export const megaMenuCardLinkSlide: Variants = {
-  hidden: { y: "100%", opacity: 0 },
-  visible: {
-    y: "0%",
-    opacity: 1,
-    transition: { duration: 0.4, ease: smoothEase, delay: 0.3 },
-  },
-};
-
-/* ─────────────────────────────────────────────────────────────────────
- * §28  Announcement bar — slide down entrance
+/* §28  Announcement bar — slide down entrance
  * ───────────────────────────────────────────────────────────────────── */
 
 export const announcementSlide: Variants = {
@@ -687,21 +592,4 @@ export const preFooterReveal: Variants = {
   },
 };
 
-/* ─────────────────────────────────────────────────────────────────────
- * §30  Pillar hero cards — stagger with scale depth
- * ───────────────────────────────────────────────────────────────────── */
 
-export const pillarCardStagger: Variants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
-};
-
-export const pillarCardReveal: Variants = {
-  hidden: { opacity: 0, y: 40, scale: 0.92 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: { duration: 0.85, ease: cinematicEase },
-  },
-};

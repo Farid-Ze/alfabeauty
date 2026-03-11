@@ -28,7 +28,7 @@ export default function NotFound(): React.JSX.Element {
               asChild
               variant="outline"
               size="lg"
-              className="border-border-warm px-8 py-6 text-[11px] font-bold uppercase tracking-[0.2em] hover:bg-surface-elevated"
+              className="border-border-warm px-8 py-6 text-[11px] font-bold uppercase tracking-[0.2em] transition-colors duration-300"
             >
               <Link href="/products">Browse Products</Link>
             </Button>

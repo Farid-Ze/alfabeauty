@@ -150,7 +150,7 @@ export function ContactPageContent() {
                                         <WhatsAppCTA
                                             location="contact_phone"
                                             variant="ghost"
-                                            className="flex items-center gap-2 p-0 h-auto text-[14px] font-semibold text-foreground transition-colors hover:text-foreground/70 hover:bg-transparent"
+                                            className="flex items-center gap-2 p-0 h-auto text-[14px] font-semibold text-foreground transition-colors duration-300 hover:text-foreground/70 hover:bg-transparent"
                                         >
                                             <MessageCircle className="h-4 w-4" />
                                             {WHATSAPP_DISPLAY}

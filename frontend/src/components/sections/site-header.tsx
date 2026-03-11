@@ -4,7 +4,7 @@ import * as React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, MessageCircle, Search } from "lucide-react";
+import { Menu, MessageCircle } from "lucide-react";
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -258,18 +258,6 @@ export function SiteHeader(): React.JSX.Element {
 
                 {/* ─── Right actions ─── */}
                 <div className="flex items-center gap-3 shrink-0 justify-self-end">
-                    <Link
-                        href="/products"
-                        aria-label="Search products"
-                        className={cn(
-                            "hidden items-center justify-center h-9 w-9 transition-[opacity,color] duration-[500ms] ease-[var(--ease)] lg:inline-flex focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
-                            isSolid
-                                ? "text-foreground hover:text-foreground/70"
-                                : "text-white hover:text-white/70"
-                        )}
-                    >
-                        <Search className="h-4 w-4" />
-                    </Link>
                     <a
                         href={WHATSAPP_URL}
                         target="_blank"

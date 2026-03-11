@@ -186,7 +186,7 @@ export function AboutSection(): React.JSX.Element {
                                     href={NAV_LINKS.about}
                                     fillClass="bg-foreground"
                                     fillTextClass="text-white"
-                                    className="bg-surface-elevated text-foreground border border-border-warm hover:bg-surface-elevated"
+                                    className="bg-surface-elevated text-foreground border border-border-warm"
                                 >
                                     Learn More About Us
                                     <ArrowRight className="h-4 w-4" />

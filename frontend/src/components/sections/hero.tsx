@@ -2,7 +2,6 @@
 
 import * as React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -10,16 +9,14 @@ import { AnimatedButton } from "@/components/ui/animated-button";
 import { TextReveal } from "@/components/motion/text-reveal";
 import { FadeIn } from "@/components/motion/fade-in";
 import { ScrollIndicator } from "@/hooks/use-animations";
-import { NAV_LINKS, ESTABLISHED_YEAR, PILLARS } from "@/lib/config";
-import { PARALLAX, HERO_TIMING, cinematicEase, pillarCardStagger, pillarCardReveal, smoothEase } from "@/lib/motion";
+import { NAV_LINKS, ESTABLISHED_YEAR } from "@/lib/config";
+import { HERO_TIMING, cinematicEase } from "@/lib/motion";
 
 /* ─────────────────────────────────────────────────────────────────────
  * HeroSection V8 — Cinematic hero with enhanced depth & atmosphere.
  *
- * V9 upgrades over V8:
- *   - Pillar CTA cards (GAP-HERO-02): 3 glass cards for Products/Education/Partnership
- *   - Will-change filter hint (GAP-PERF-01) for blur performance
- *   - Enhanced orchestration: pillar cards appear after CTA buttons
+ * V9 — Cinematic hero with video background, TextReveal heading,
+ *   and dual CTA buttons. Pillar cards removed for cleaner layout.
  * ───────────────────────────────────────────────────────────────────── */
 export function HeroSection(): React.JSX.Element {
     const videoRef = React.useRef<HTMLVideoElement>(null);
@@ -114,7 +111,7 @@ export function HeroSection(): React.JSX.Element {
                                 href={NAV_LINKS.products}
                                 fillClass="bg-white"
                                 fillTextClass="text-brand-crimson"
-                                className="bg-brand-crimson text-white hover:bg-brand-crimson"
+                                className="bg-brand-crimson text-white"
                             >
                                 Explore Our Brands
                                 <ArrowRight className="h-4 w-4" />
@@ -126,41 +123,12 @@ export function HeroSection(): React.JSX.Element {
                                 asChild
                                 variant="outline"
                                 size="lg"
-                                className="border-white/20 bg-transparent px-8 py-6 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition-[border-color,background-color] duration-500 hover:border-white/50 hover:bg-white/8"
+                                className="border-white/20 bg-transparent px-8 py-6 text-[11px] font-bold uppercase tracking-[0.15em] text-white transition-colors duration-300 hover:border-white/40 hover:bg-white/10"
                             >
                                 <Link href={NAV_LINKS.partnership}>Partner With Us</Link>
                             </Button>
                         </FadeIn>
                     </div>
-
-                    {/* ─── Pillar CTA Cards ─── GAP-HERO-02 */}
-                    <motion.div
-                        variants={pillarCardStagger}
-                        initial="hidden"
-                        animate="visible"
-                        className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl"
-                        style={{ animationDelay: `${HERO_TIMING.cta + 0.4}s` }}
-                    >
-                        {PILLARS.map((pillar, i) => (
-                            <motion.div key={pillar.label} variants={pillarCardReveal}>
-                                <Link
-                                    href={pillar.href}
-                                    className="pillar-card group block rounded-lg p-5 will-change-backdrop"
-                                >
-                                    <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-2">
-                                        0{i + 1}
-                                    </span>
-                                    <span className="block text-sm font-semibold text-white mb-1.5 tracking-wide">
-                                        {pillar.label}
-                                    </span>
-                                    <span className="block text-xs font-light text-white/40 leading-relaxed line-clamp-2">
-                                        {pillar.description}
-                                    </span>
-                                    <ArrowRight className="mt-3 size-3.5 text-white/30 transition-[color,transform] duration-500 group-hover:text-white/70 group-hover:translate-x-1" />
-                                </Link>
-                            </motion.div>
-                        ))}
-                    </motion.div>
                 </div>
             </div>
 

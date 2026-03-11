@@ -5,7 +5,9 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { FadeIn } from "@/components/motion/fade-in";
 import { TextReveal } from "@/components/motion/text-reveal";
-import { staggerMedium, fadeInUp, cinematicEase } from "@/lib/motion";
+import { AnimatedButton } from "@/components/ui/animated-button";
+import { Button } from "@/components/ui/button";
+import { staggerMedium, fadeInUp } from "@/lib/motion";
 
 const MARQUEE_WORDS = [
     "Professional", "Innovation", "Excellence", "Partnership",
@@ -60,7 +62,7 @@ export function PreFooterCTA() {
                     as="h2"
                     split="word"
                     blur
-                    className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight leading-[1.1] mb-8"
+                    className="heading-section text-background"
                     lines={[
                         "Elevate Your Craft With",
                         "Premium Professional Products",
@@ -82,23 +84,29 @@ export function PreFooterCTA() {
                     className="flex flex-col sm:flex-row items-center justify-center gap-4"
                 >
                     <motion.div variants={fadeInUp}>
-                        <Link
+                        <AnimatedButton
                             href="/products"
-                            className="group inline-flex items-center gap-3 bg-background text-foreground px-8 py-4 text-sm tracking-wider uppercase font-medium hover:bg-background/90 transition-colors"
+                            fillClass="bg-foreground"
+                            fillTextClass="text-white"
+                            className="bg-background text-foreground"
                         >
                             Explore Products
-                            <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                        </Link>
+                            <ArrowRight className="h-4 w-4" />
+                        </AnimatedButton>
                     </motion.div>
 
                     <motion.div variants={fadeInUp}>
-                        <Link
-                            href="/partnership"
-                            className="group inline-flex items-center gap-3 border border-background/20 text-background px-8 py-4 text-sm tracking-wider uppercase font-light hover:border-background/40 transition-colors"
+                        <Button
+                            asChild
+                            variant="outline"
+                            size="lg"
+                            className="border-background/20 bg-transparent px-8 py-6 text-[11px] font-bold uppercase tracking-[0.15em] text-background transition-colors duration-300 hover:border-background/40 hover:bg-white/10"
                         >
-                            Become a Partner
-                            <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" />
-                        </Link>
+                            <Link href="/partnership">
+                                Become a Partner
+                                <ArrowRight className="h-4 w-4" />
+                            </Link>
+                        </Button>
                     </motion.div>
                 </motion.div>
             </div>

@@ -795,68 +795,7 @@
   }
 }
 
-/* ─────────────────────────────────────────────────────────────────
- * §12  Enhanced Mega-menu panel styles — 5-phase card orchestration
- * ───────────────────────────────────────────────────────────────── */
-
-@layer utilities {
-  .mega-card-5phase {
-    position: relative;
-    overflow: hidden;
-  }
-  .mega-card-5phase .card-border {
-    transform-origin: left;
-  }
-  /* Subtle warm glow on dark mega-menu cards */
-  .mega-card-5phase:hover::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(
-      ellipse at 50% 100%,
-      rgba(164, 22, 26, 0.06) 0%,
-      transparent 70%
-    );
-    pointer-events: none;
-    z-index: 0;
-  }
-}
-
-/* ─────────────────────────────────────────────────────────────────
- * §13  Pillar CTA cards in hero
- * ───────────────────────────────────────────────────────────────── */
-
-@layer utilities {
-  .pillar-card {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(16px) saturate(1.3);
-    -webkit-backdrop-filter: blur(16px) saturate(1.3);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    transition: background 0.6s var(--ease), border-color 0.6s var(--ease),
-      transform 0.6s var(--ease);
-  }
-  .pillar-card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.14);
-    transform: translateY(-4px);
-  }
-}
-
-/* ─────────────────────────────────────────────────────────────────
- * §14  Will-change performance hints
- * ───────────────────────────────────────────────────────────────── */
-
-@layer utilities {
-  .will-change-filter {
-    will-change: filter;
-  }
-  .will-change-clip {
-    will-change: clip-path;
-  }
-  .will-change-backdrop {
-    will-change: backdrop-filter;
-  }
-}
+/* §12–§14 removed: mega-card-5phase, pillar-card, will-change hints (no longer used) */
 
 /* ─────────────────────────────────────────────────────────────────
  * §15  Trust badge row
