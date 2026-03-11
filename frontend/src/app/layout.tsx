@@ -5,7 +5,7 @@ import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SITE_NAME, SITE_DOMAIN, CONTACT_EMAIL, INSTAGRAM_URL } from "@/lib/config";
 import { SiteHeader } from "@/components/sections/site-header";
-import { AnnouncementBar } from "@/components/sections/announcement-bar";
+
 import { MegaFooter } from "@/components/sections/mega-footer";
 import { LenisProvider } from "@/components/providers/lenis-provider";
 import { Preloader } from "@/components/providers/preloader";
@@ -116,11 +116,6 @@ export default async function RootLayout({
             >
               Skip to content
             </a>
-            <AnnouncementBar
-              message="New: Alfaparf Milano Semi Di Lino Collection Now Available"
-              href="/products"
-              linkText="Shop Now"
-            />
             <SiteHeader />
             <div className="relative z-10 bg-background shadow-[0_20px_40px_rgba(0,0,0,0.1)]">
               <PageTransition>

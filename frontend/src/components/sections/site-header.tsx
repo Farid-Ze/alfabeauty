@@ -116,21 +116,17 @@ export function SiteHeader(): React.JSX.Element {
 
     return (
         <>
-        {/* Dark overlay behind mega-menu panels — cinematic with blur + warm tinting */}
+        {/* Dark overlay behind mega-menu panels */}
         <AnimatePresence>
             {menuOpen && (
                 <motion.div
-                    className="fixed inset-0 z-40"
+                    className="fixed inset-0 z-40 bg-foreground/50"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.65, ease: smoothEase }}
+                    transition={{ duration: 0.4, ease: smoothEase }}
                     aria-hidden="true"
-                    style={{ willChange: "opacity", transform: "translateZ(0)" }}
-                >
-                    <div className="absolute inset-0 bg-foreground/70 backdrop-blur-sm" />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/10" />
-                </motion.div>
+                />
             )}
         </AnimatePresence>
 

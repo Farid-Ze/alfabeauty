@@ -8,7 +8,7 @@ import { BRANDS } from "@/lib/config";
 
 export function BrandsPanel() {
     return (
-        <div className="mx-auto grid max-w-[1400px] grid-cols-[1fr_1fr_1fr_1fr_220px] gap-4 px-8 py-10 lg:px-12">
+        <div className="mx-auto grid min-h-[340px] max-w-[1400px] grid-cols-[1fr_1fr_1fr_1fr_220px] gap-4 px-8 py-10 lg:px-12">
             {BRANDS.map((brand) => (
                 <NavigationMenuLink key={brand.name} asChild>
                     <Link

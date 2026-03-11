@@ -27,7 +27,7 @@ const PARTNERSHIP_ITEMS = [
 
 export function PartnershipPanel() {
     return (
-        <div className="mx-auto grid max-w-[1400px] grid-cols-[1fr_1fr_1fr_220px] gap-px bg-border-warm/20 px-8 py-10 lg:px-12">
+        <div className="mx-auto grid min-h-[340px] max-w-[1400px] grid-cols-[1fr_1fr_1fr_220px] gap-px bg-border-warm/20 px-8 py-10 lg:px-12">
             {PARTNERSHIP_ITEMS.map((item) => (
                 <div key={item.title}>
                     <NavigationMenuLink asChild>

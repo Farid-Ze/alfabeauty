@@ -1,5 +1,4 @@
 import dynamic from "next/dynamic";
-import Link from "next/link";
 import {
     Clock,
     Mail,
@@ -8,7 +7,6 @@ import {
     Phone,
 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
 import {
     Accordion,
     AccordionContent,
@@ -260,40 +258,6 @@ export function ContactPageContent() {
             </section>
             </FadeIn>
 
-            {/* ─── §4: CTA Band ─── */}
-            <FadeIn>
-            <section
-                className="bg-foreground py-20 lg:py-28"
-            >
-                <div className="mx-auto max-w-[1400px] px-6 text-center sm:px-8 lg:px-12">
-                    <p className="eyebrow text-white/50">
-                        Let&apos;s Connect
-                    </p>
-                    <h2 className="mt-5 heading-section text-white">
-                        Ready to elevate your salon?
-                    </h2>
-                    <p className="mx-auto mt-6 max-w-lg body-prose text-white/60">
-                        From product consultation to partnership
-                        opportunities, we&apos;re here to support
-                        your professional growth.
-                    </p>
-                    <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                        <WhatsAppCTA
-                            location="contact_cta_band"
-                            className="inline-flex items-center gap-2.5 bg-background px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-foreground transition-all duration-300 hover:bg-background/90"
-                        >
-                            <MessageCircle className="h-4 w-4" />
-                            WhatsApp Us
-                        </WhatsAppCTA>
-                        <Button asChild variant="outline" className="border-white/20 px-8 py-3.5 text-[11px] font-bold uppercase tracking-[0.2em] text-white transition-all duration-300 hover:bg-white/10 hover:text-white">
-                            <Link href="/partnership">
-                                Become a Partner
-                            </Link>
-                        </Button>
-                    </div>
-                </div>
-            </section>
-            </FadeIn>
         </main>
     );
 }

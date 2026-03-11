@@ -25,7 +25,7 @@ import {
   LEGAL_LINKS,
 } from "@/lib/config";
 import { trackEvent } from "@/lib/analytics";
-import { cardStagger, cardFadeScale, PARALLAX, cinematicEase, floatingFadeIn, listStagger, listItemFadeIn } from "@/lib/motion";
+import { cardStagger, cardFadeScale, PARALLAX, cinematicEase, listStagger, listItemFadeIn } from "@/lib/motion";
 import { TextReveal } from "@/components/motion/text-reveal";
 import { LineGrow, useParallax } from "@/hooks/use-animations";
 import { FadeIn } from "@/components/motion/fade-in";
@@ -39,13 +39,6 @@ import { FadeIn } from "@/components/motion/fade-in";
  *   - Richer grain + mood on the fixed footer layer
  *   - Cinematic card hover with image reveal
  * ───────────────────────────────────────────────────────────────────── */
-
-const TRUST_BADGES = [
-  "Official Distributor",
-  "100% Authentic Products",
-  "Professional Grade",
-  "18+ Years Experience",
-] as const;
 
 const PILLAR_IMAGES = [
   "/images/brands/alfaparf-milano.webp",
@@ -76,12 +69,16 @@ function WordmarkParallax() {
 export function MegaFooter(): React.JSX.Element {
   const currentYear = new Date().getFullYear();
   const [showScrollTop, setShowScrollTop] = React.useState(false);
+  const [showFab, setShowFab] = React.useState(false);
   const footerRef = React.useRef<HTMLElement>(null);
   const [footerHeight, setFooterHeight] = React.useState(600);
 
   const { scrollY } = useScroll();
   useMotionValueEvent(scrollY, "change", (latest) => {
     setShowScrollTop(latest > 400);
+    const docHeight = document.documentElement.scrollHeight;
+    const winHeight = window.innerHeight;
+    setShowFab(latest >= docHeight - winHeight - footerHeight);
   });
 
   // Measure actual footer height for the spacer (ResizeObserver)
@@ -140,7 +137,7 @@ export function MegaFooter(): React.JSX.Element {
           {/* Scroll-to-top (Yucca arrow-up button) */}
           <motion.button
             onClick={scrollToTop}
-            className="group flex h-10 w-10 shrink-0 items-center justify-center border border-charcoal/20 text-foreground transition-[border-color,background-color,color,transform,box-shadow] duration-300 hover:border-charcoal hover:bg-foreground hover:text-white hover:rotate-12 hover:shadow-[0_0_12px_rgba(0,0,0,0.15)]"
+            className="group flex h-10 w-10 shrink-0 items-center justify-center border border-charcoal/20 text-foreground transition-all duration-300 hover:border-charcoal hover:bg-foreground hover:text-white"
             aria-label="Scroll to top"
             initial={{ opacity: 0 }}
             animate={{ opacity: showScrollTop ? 1 : 0 }}
@@ -175,7 +172,7 @@ export function MegaFooter(): React.JSX.Element {
               >
                 <Link
                   href={pillar.href}
-                  className="group relative flex h-full min-h-[200px] flex-col justify-between overflow-hidden border border-charcoal/15 bg-surface-elevated/50 p-6 transition-[border-color,background-color,box-shadow,transform] duration-[600ms] ease-[var(--ease)] hover:border-charcoal/30 hover:bg-background hover:shadow-warm-md hover:-translate-y-3"
+                  className="group relative flex h-full min-h-[200px] flex-col justify-between overflow-hidden border border-charcoal/15 bg-surface-elevated/50 p-6 transition-all duration-300 hover:shadow-sm"
                 >
                   {/* Background product image — reveals on hover */}
                   <Image
@@ -222,21 +219,7 @@ export function MegaFooter(): React.JSX.Element {
           </motion.div>
         </div>
 
-        {/* ─── Trust Badges — GAP-FOOTER-01 ─── */}
-        <div className="mx-auto w-full max-w-[1400px] px-6 pb-6 sm:px-8 lg:px-12">
-          <FadeIn delay={0.3} blur>
-            <div className="flex flex-wrap items-center gap-3">
-              {TRUST_BADGES.map((badge) => (
-                <span key={badge} className="trust-badge">
-                  <span className="inline-block h-1.5 w-1.5 rounded-full bg-brand-crimson/50" />
-                  {badge}
-                </span>
-              ))}
-            </div>
-          </FadeIn>
-        </div>
-
-        {/* ─── Bottom bar (Yucca exact layout) ─── */}
+        {/* ─── Bottom bar ─── */}
         <FadeIn delay={0.3} blur>
           <div className="border-t border-charcoal/10 bg-surface-elevated/60">
             <motion.div
@@ -248,7 +231,7 @@ export function MegaFooter(): React.JSX.Element {
             >
               {/* Left: Copyright + Social icons */}
               <motion.div className="flex items-center gap-5" variants={listItemFadeIn}>
-                <p className="text-xs text-charcoal/50">
+                <p className="text-xs text-charcoal/70">
                   © {currentYear} {SITE_NAME}. All Rights Reserved
                 </p>
 
@@ -263,7 +246,7 @@ export function MegaFooter(): React.JSX.Element {
                     href={INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-charcoal/40 transition-all duration-300 hover:text-foreground hover:scale-110 hover:-rotate-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="text-charcoal/50 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     aria-label="Instagram"
                   >
                     <Instagram className="h-4 w-4" />
@@ -274,7 +257,7 @@ export function MegaFooter(): React.JSX.Element {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => trackEvent("cta_whatsapp_click", { location: "footer" })}
-                    className="text-charcoal/40 transition-all duration-300 hover:text-foreground hover:scale-110 hover:rotate-6 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    className="text-charcoal/50 transition-colors duration-300 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     aria-label="WhatsApp"
                   >
                     <MessageCircle className="h-4 w-4" />
@@ -289,7 +272,7 @@ export function MegaFooter(): React.JSX.Element {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="link-animated text-xs text-charcoal/50 transition-colors duration-300 hover:text-foreground"
+                    className="text-xs text-charcoal/70 transition-colors duration-300 hover:text-foreground hover:underline underline-offset-4"
                   >
                     {link.label}
                   </Link>
@@ -305,11 +288,11 @@ export function MegaFooter(): React.JSX.Element {
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => trackEvent("cta_whatsapp_click", { location: "sticky_fab" })}
-        className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg transition-[transform,box-shadow] duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(37,211,102,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+        className="fixed bottom-6 right-6 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-whatsapp text-white shadow-lg transition-[transform,box-shadow,opacity] duration-300 hover:scale-110 hover:shadow-[0_0_20px_rgba(37,211,102,0.35)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         aria-label="Chat on WhatsApp"
-        variants={floatingFadeIn}
-        initial="hidden"
-        animate="visible"
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={showFab ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8, pointerEvents: "none" as const }}
+        transition={{ duration: 0.3 }}
       >
         <MessageCircle className="h-5 w-5" />
       </motion.a>

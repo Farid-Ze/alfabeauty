@@ -33,7 +33,7 @@ const EDUCATION_ITEMS = [
 
 export function EducationPanel() {
     return (
-        <div className="mx-auto grid max-w-[1400px] grid-cols-[1fr_auto] gap-10 px-8 py-10 lg:px-12">
+        <div className="mx-auto grid min-h-[340px] max-w-[1400px] grid-cols-[1fr_auto] gap-10 px-8 py-10 lg:px-12">
             {/* Left: Education items */}
             <div className="grid grid-cols-2 gap-x-8 gap-y-5">
                 {EDUCATION_ITEMS.map((item) => (

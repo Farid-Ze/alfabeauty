@@ -22,7 +22,7 @@ export function ProductsPanel() {
     const [hoveredImage, setHoveredImage] = React.useState(DEFAULT_IMAGE);
 
     return (
-        <div className="mx-auto grid max-w-[1400px] grid-cols-[1.1fr_1fr] gap-0 px-8 py-10 lg:px-12">
+        <div className="mx-auto grid min-h-[340px] max-w-[1400px] grid-cols-[1.1fr_1fr] gap-0 px-8 py-10 lg:px-12">
             {/* Left: Featured product showcase */}
             <div className="relative flex flex-col justify-between overflow-hidden bg-charcoal pr-10 p-8">
                 <div className="absolute inset-0">

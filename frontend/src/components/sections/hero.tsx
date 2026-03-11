@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import { AnimatedButton } from "@/components/ui/animated-button";
 import { TextReveal } from "@/components/motion/text-reveal";
 import { FadeIn } from "@/components/motion/fade-in";
-import { ScrollIndicator } from "@/hooks/use-animations";
 import { NAV_LINKS, ESTABLISHED_YEAR } from "@/lib/config";
 import { HERO_TIMING, cinematicEase } from "@/lib/motion";
 
@@ -140,7 +139,6 @@ export function HeroSection(): React.JSX.Element {
                 transition={{ delay: HERO_TIMING.eyebrow + 0.2, duration: 1.4, ease: cinematicEase }}
             />
 
-            <ScrollIndicator />
         </section>
     );
 }
